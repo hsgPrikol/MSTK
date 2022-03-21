@@ -15,35 +15,35 @@ Window {
 
 
 
-//    Rectangle {
-//        Text {
-//            id: name
-//            text: textTime
-//        }
+    //    Rectangle {
+    //        Text {
+    //            id: name
+    //            text: textTime
+    //        }
 
-//        //        Transition
-
-
+    //        //        Transition
 
 
-//    }
 
-//    function log(number_1) {
-//        console.log(number_1)
-//    }
+
+    //    }
+
+    //    function log(number_1) {
+    //        console.log(number_1)
+    //    }
 
     signal changedWidthSignal(var newWidth, var newXPosition)
     property var sizeRectangleCurrent: 0
 
-//    Component.onCompleted: {
-//        changedWidthSignal.connect(window.log)
-//    }
+    //    Component.onCompleted: {
+    //        changedWidthSignal.connect(window.log)
+    //    }
 
     Timer {
         id: timerRect
         property int count: -1
         property int xRow: 0
-        interval: 100
+        interval: 500
         running: true
         repeat: true
 
@@ -52,7 +52,7 @@ Window {
 
             timerRect.count = timerRect.count + 1
 
-            timerRect.xRow = ((sizeRectangleCurrent  + 5) * timerRect.count);
+            timerRect.xRow = (sizeRectangleCurrent * timerRect.count);
 
             var Rect = rectCreator.createObject(row,
                                                 {
@@ -63,59 +63,89 @@ Window {
                                                 });
 
             changedWidthSignal.connect(Rect.setWidthRectGreen)
-
-//                if (timerRect.count % 9 == 0)
-            //{
-                //var Rect = rectCreator.createObject(row, {x: timerRect.xRow, countText: timerRect.count + 1, colorChange: "green"});
-            //}
-//                else
-//                {
-//                    var Rect = rectCreator.createObject(row, {x: timerRect.xRow, countText: timerRect.count + 1, colorChange: "transparent"});
-//                }
-
-
-
-
-
             print(timerRect.count)
         }
     }
 
-    ScrollView {
-        id: scroll
+    Rectangle{
+        id: windowRect
+        //        y: 0
         height: 40
-        width: window.width
-        contentWidth: timerRect.xRow
-        contentHeight: row.height
-        ScrollBar.horizontal.position: timerRect.count + 1
+        width: window.width - 100
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "red"
+
+
+        ScrollView {
+            id: scroll
+            height: 40
+            wheelEnabled: true
+            hoverEnabled: true
+            width: parent.width
+            contentWidth: timerRect.xRow
+            contentHeight: row.height
+            ScrollBar.horizontal.position: timerRect.count + 1
+            clip: true
+//            ScrollBar.horizontal: ScrollBar{
+
+//                parent: scroll.parent
+//                anchors.top: scroll.top
+//                anchors.left: scroll.right
+//                anchors.bottom: scroll.bottom
+//                anchors.right: scroll.right
+
+////                MouseArea{
+////                    anchors.fill: parent
+
+////                    onPressed: {
+////                        print("onPressd")
+////                    }
+//                //}
+//            }
 
 
 
-        //ScrollBar.horizontal.interactive: false
-        //ScrollBar.horizontal.pressed: false
-        //        ScrollBar.interactive: false
-        //        enabled: false
-        Row{
-            id: row
-            spacing: 2
+            //            MouseArea{
+            //                anchors.fill:
 
-//            Repeater{
-//                id: repeat
-//                //                model: timerRect.count
-//                Rectangle{
-//                    id: rect
-//                    width: 40
-//                    height: 40
+            //                onPressed: {
+            //                    console.log("onPressed")
+            //                }
+            //            }
 
-//                    color: "green"
 
-//                    Text {
-//                        text: index+1
-//                    }
-//                }
+
+
+
+
+            Flickable {
+                interactive: false
             }
+
+            //Flickable.flickableDirection: Flickable.HorizontalFlick
+            //            Flickable.flickableDirection: Flickable.VerticalFlick
+
+
+
+
+
+            //            moving: false
+            //Flickable.moving: false
+            //ScrollBar.horizontal.interactive: false
+            //ScrollBar.horizontal.pressed: false
+            //        ScrollBar.interactive: false
+            //        enabled: false
+            Row{
+                id: row
+            }
+
+            //            Label {
+            //                     text: "ABC"
+            //                     font.pixelSize: 224
+            //                 }
         }
-//    }
+    }
+    //    }
 
     StartWindow{
         id: startWindow
@@ -140,10 +170,7 @@ Window {
             anchors.fill: parent
 
             onClicked: {
-                timerRect.stop()
-
-
-
+                timerRect.running = !timerRect.running
 
                 startWindow.show()
                 window.hide()
@@ -168,19 +195,19 @@ Window {
 
         stepSize: 15
 
-//        onMoved: {
-//            //console.log("work")
-//            window.changedWidthSignal(
-//                                        1 * (window.width / slider.value),
-//                                        timerRect.xRow
-//                                      )
+        //        onMoved: {
+        //            //console.log("work")
+        //            window.changedWidthSignal(
+        //                                        1 * (window.width / slider.value),
+        //                                        timerRect.xRow
+        //                                      )
 
-//            label.text = window.width / slider.value
-////            label1.text =
-//        }
+        //            label.text = window.width / slider.value
+        ////            label1.text =
+        //        }
 
         onValueChanged: {
-            sizeRectangleCurrent = window.width / slider.value
+            sizeRectangleCurrent = windowRect.width / slider.value
 
             window.changedWidthSignal(sizeRectangleCurrent, timerRect.xRow)
 
@@ -188,14 +215,14 @@ Window {
         }
 
         Component.onCompleted: {
-            sizeRectangleCurrent = window.width / slider.value
+            sizeRectangleCurrent = windowRect.width / slider.value
 
 
         }
 
 
-//        Component.onCompleted: {
-//            console.log("Component.onCompleted")
+        //        Component.onCompleted: {
+        //            console.log("Component.onCompleted")
         //            slider.moved.connect(window.changedWidthSignal)
         //        }
     }
@@ -222,28 +249,34 @@ Window {
         }
     }
 
-//    MouseArea {
-//        anchors.fill: parent
-//        acceptedButtons: Qt.LeftButton | Qt.RightButton
-//        onClicked: {
+    //    MouseArea {
+    //        anchors.fill: parent
+    //        acceptedButtons: Qt.LeftButton | Qt.RightButton
+    //        onClicked: {
 
-//                    if (mouse.button == Qt.RightButton)
-//                    {
-//                        cff += 10
-//                        scroll.contentWidth = timerRect.count * cff
-//                        console.log(scroll.contentWidth)
-////                        event.accepted = true
-//                    }
+    //                    if (mouse.button == Qt.RightButton)
+    //                    {
+    //                        cff += 10
+    //                        scroll.contentWidth = timerRect.count * cff
+    //                        console.log(scroll.contentWidth)
+    ////                        event.accepted = true
+    //                    }
 
 
-//                    if (mouse.button == Qt.LeftButton)
-//                    {
-//                        cff -= 10
-//                        scroll.contentWidth = timerRect.count * cff
-//                        console.log(scroll.contentWidth)
-////                        event.accepted = true
-//                    }
-//        }
-//    }
+    //                    if (mouse.button == Qt.LeftButton)
+    //                    {
+    //                        cff -= 10
+    //                        scroll.contentWidth = timerRect.count * cff
+    //                        console.log(scroll.contentWidth)
+    ////                        event.accepted = true
+    //                    }
+    //        }
+    //    }
 }
 
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.5}
+}
+##^##*/

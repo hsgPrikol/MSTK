@@ -44,7 +44,7 @@ Item {
     function setWidthRectGreen(newWidth, newXPosition)
     {
         test.width = newWidth
-        rectGreen.x = ((newWidth  + 5) * countText);
+        rectGreen.x = (newWidth * countText);
 
 //        rectGreen.x = newXPosition
         //rectGreen.dfltWidth = newWidth
