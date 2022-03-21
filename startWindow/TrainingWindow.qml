@@ -13,20 +13,34 @@ ApplicationWindow{
     title: "Settings"
     //    visible: false
 
+
+
     function getTimeAndDate()
     {
         startWindowDateText.text = Qt.formatDateTime(new Date(), "dd.MM.yyyy")
         startWindowHourAndMinutsText.text = Qt.formatTime(new Date(), "hh:mm")
-//        print(Qt.formatDateTime(new Date(), "dd.MM.yyyy"))
+        //        print(Qt.formatDateTime(new Date(), "dd.MM.yyyy"))
+    }
+
+    function showing()
+    {
+        //viewwewGridLayout.columns = mainClass.getCountTargets()
+        viewwewRepeater.model = mainClass.getCountTargets()
+
+//        viewwewRow.width = viewwew.width - (100 + ((parent.width / 3) * mainClass.getCountTargets()))
+//        viewwewRow.spacing = 0
+
     }
 
     signal signalViewwewExit
 
-    ViewWindowTraining{
+    WidgetViewWindowTraining {
         id: viewWindowTraining
         anchors.fill: parent
-        anchors.leftMargin: 0
-        anchors.topMargin: 90
+        anchors.rightMargin: 189
+        anchors.bottomMargin: 130
+        anchors.leftMargin: 175
+        anchors.topMargin: 202
 
     }
 
@@ -45,7 +59,7 @@ ApplicationWindow{
             running: true
 
             onTriggered: {
-              getTimeAndDate()
+                getTimeAndDate()
             }
         }
 
@@ -199,10 +213,45 @@ ApplicationWindow{
         }
     }
 
+    Row {
+        id: viewwewRow
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        x: 85
+        y: 99
+        width: parent.width - 100
+        height: 70
+
+        //horizontalCenter:
+
+//        columns: 3
+        //horizontalItemAlignment: Grid.AlignHCenter
+        //verticalItemAlignment: Grid.AlignVCenter
+        //effectiveHorizontalItemAlignment: Grid.AlignHCenter
+        //flow: GridLayout.LeftToRight
+
+        Repeater{
+          anchors.fill: parent
+            id: viewwewRepeater
+//            anchors.fill: parent
+//            model: countTargets
+            Rectangle{
+
+                height: parent.height
+                width: parent.width / 3 - 100
+                border.width: 1
+                color: "red"
+            }
+            Component.onCompleted: {
+                console.log(model, "23123123")
+            }
+        }
+    }
+
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}
+    D{i:0;formeditorZoom:0.5}
 }
 ##^##*/

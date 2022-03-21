@@ -29,10 +29,11 @@ ApplicationWindow{
         }
     }
 
-    Test{
+    TrainingWindow {
         id: test
 
         onSignalViewwewExit: {
+            showing()
             test.show()
             startWindow.hide()
         }
@@ -60,13 +61,15 @@ ApplicationWindow{
     {
         min = Math.ceil(min)
         max = Math.floor(max)
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        var a = Math.floor(Math.random() * (max - min + 1)) + min
+        return a;
     }
 
     //функция для поиска целей (мишеней) и обработка нажатия на кнопку поиска целей.
     function foundTargets()
     {
-        countTargetsText.text = getRandom(0,255)
+        mainClass.setCountTargets(getRandom(1,3))
+        countTargetsText.text = mainClass.getCountTargets()
         foundingTargetsText.text = "Найдено\nмишеней"
         beginingTrainingImg.source = "qrc:/pictures/Trenirovka_aktiv.tif"
         beginingTrainingText.color = "black"

@@ -1,5 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "mainclass.h"
+#include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +13,10 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
+
+    MainClass mainClass;
+
+    engine.rootContext()->setContextProperty("mainClass", &mainClass);
 //    const QUrl url(QStringLiteral("qrc:/startWindow/StartWindow.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

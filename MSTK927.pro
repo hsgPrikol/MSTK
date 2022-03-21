@@ -7,7 +7,8 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+        mainclass.cpp
 
 RESOURCES += qml.qrc
 
@@ -73,4 +74,5 @@ DISTFILES += \
     Picture_MSTK/Trenirovka/TimeLine.tif \
     Picture_MSTK/Trenirovka/Verh.tif
 
-HEADERS +=
+HEADERS += \
+    mainclass.h

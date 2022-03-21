@@ -29,7 +29,7 @@
         <file>startWindow/TrainingParameters.qml</file>
         <file>startWindow/TotalTimeLine.qml</file>
         <file>model/copter.obj</file>
-        <file>startWindow/ViewWindowTraining.qml</file>
-        <file>startWindow/Test.qml</file>
+        <file>startWindow/WidgetViewWindowTraining.qml</file>
+        <file>startWindow/TrainingWindow.qml</file>
     </qresource>
 </RCC>

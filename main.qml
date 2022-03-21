@@ -2,6 +2,8 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
+ import QtQuick.Layouts 1.15
+
 import "./startWindow"
 
 Window {
@@ -63,7 +65,7 @@ Window {
                                                 });
 
             changedWidthSignal.connect(Rect.setWidthRectGreen)
-            print(timerRect.count)
+//            print(timerRect.count)
         }
     }
 
@@ -183,6 +185,24 @@ Window {
         }
     }
 
+//    Grid {
+//        x: 171
+//        y: 183
+//        layoutDirection: Qt.LeftToRight
+//        flow: Grid.TopToBottom
+//        rows: 0
+//        verticalItemAlignment: Grid.AlignVCenter
+//        horizontalItemAlignment: Grid.AlignHCenter
+//        columns: 3
+//        spacing: 2
+//        Rectangle { color: "red"; width: 50; height: 50 }
+//        Rectangle { color: "green"; width: 20; height: 50 }
+//        Rectangle { color: "blue"; width: 50; height: 20 }
+//        Rectangle { color: "cyan"; width: 50; height: 50 }
+//        Rectangle { color: "magenta"; width: 10; height: 10 }
+//    }
+
+
     Slider {
         id: slider
         x: 106
@@ -249,6 +269,40 @@ Window {
         }
     }
 
+//    Grid {
+//        id: grid
+//        x: 50
+//        y: 352
+//        width: 111
+//        height: 61
+//        transformOrigin: Item.Center
+//        spacing: 2
+//        horizontalItemAlignment: Grid.AlignHCenter
+//        rows: 1
+//        columns: 2
+
+//        Rectangle {
+//            id: rectangle
+//            width: 20
+//            height: 20
+//            color: "#ffffff"
+//        }
+
+//        Rectangle {
+//            id: rectangle1
+//            width: 20
+//            height: 20
+//            color: "#ffffff"
+//        }
+
+//        Rectangle {
+//            id: rectangle2
+//            width: 20
+//            height: 20
+//            color: "#ffffff"
+//        }
+//    }
+
     //    MouseArea {
     //        anchors.fill: parent
     //        acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -277,6 +331,6 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}
+    D{i:0;formeditorZoom:0.9}
 }
 ##^##*/

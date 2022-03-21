@@ -16,6 +16,8 @@ ApplicationWindow {
 
     signal signalTrainingParametersExit
 
+
+
     Rectangle {
         id: trainingParametersTool
         x: 0
