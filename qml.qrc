@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>RectGreen.qml</file>
+        <file>startWindow/StartWindow.qml</file>
+        <file>startWindow/Settings.qml</file>
+        <file>pictures/Big_Nastroiki.tif</file>
+        <file>pictures/Close_okno_nastroek.tif</file>
+        <file>pictures/Close_spravku.tif</file>
+        <file>pictures/Cyber.tif</file>
+        <file>pictures/Cyber-Mandarin.tif</file>
+        <file>pictures/Line_spravki.tif</file>
+        <file>pictures/Logo.tif</file>
+        <file>pictures/Logo2.tif</file>
+        <file>pictures/Logo3.tif</file>
+        <file>pictures/Nastoriki_knopka_primenit.tif</file>
+        <file>pictures/Nastroiki.tif</file>
+        <file>pictures/Nastroiki_knopka_obzor.tif</file>
+        <file>pictures/Nastroiki_pole_zapisi.tif</file>
+        <file>pictures/Parametry.tif</file>
+        <file>pictures/Poisk_misheney.tif</file>
+        <file>pictures/Put_papki_save.tif</file>
+        <file>pictures/Spravka.tif</file>
+        <file>pictures/Trenirovka_aktiv.tif</file>
+        <file>pictures/Trenirovka_ne_aktiv.tif</file>
+        <file>pictures/Verh.tif</file>
+        <file>pictures/Vyhod.tif</file>
+        <file>pictures/Zagruzit_trenyu.tif</file>
+        <file>startWindow/TrainingParameters.qml</file>
+        <file>startWindow/TotalTimeLine.qml</file>
+        <file>model/copter.obj</file>
+        <file>startWindow/ViewWindowTraining.qml</file>
+        <file>startWindow/Test.qml</file>
+    </qresource>
+</RCC>
