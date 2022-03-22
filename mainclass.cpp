@@ -7,10 +7,10 @@ MainClass::MainClass(QObject *parent) : QObject(parent)
 
 int MainClass::getCountTargets()
 {
-    return countTargets;
+    return this->countTargets;
 }
 
 void MainClass::setCountTargets(int value)
 {
-    countTargets = value;
+    this->countTargets = value;
 }

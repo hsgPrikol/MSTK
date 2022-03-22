@@ -1,6 +1,6 @@
 QT += quick 3dcore 3drender 3dinput 3dextras 3dquick 3dquickextras quick3d
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.

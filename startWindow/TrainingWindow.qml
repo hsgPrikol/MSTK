@@ -13,7 +13,8 @@ ApplicationWindow{
     title: "Settings"
     //    visible: false
 
-
+    property int widthRectRepeater: 250
+    property int heightRectRepeater: 50
 
     function getTimeAndDate()
     {
@@ -26,10 +27,7 @@ ApplicationWindow{
     {
         //viewwewGridLayout.columns = mainClass.getCountTargets()
         viewwewRepeater.model = mainClass.getCountTargets()
-
-//        viewwewRow.width = viewwew.width - (100 + ((parent.width / 3) * mainClass.getCountTargets()))
-//        viewwewRow.spacing = 0
-
+        viewwewRow.width = (widthRectRepeater + viewwewRow.spacing) * viewwewRepeater.model
     }
 
     signal signalViewwewExit
@@ -217,37 +215,55 @@ ApplicationWindow{
         id: viewwewRow
 
         anchors.horizontalCenter: parent.horizontalCenter
-        x: 85
         y: 99
-        width: parent.width - 100
-        height: 70
 
-        //horizontalCenter:
-
-//        columns: 3
-        //horizontalItemAlignment: Grid.AlignHCenter
-        //verticalItemAlignment: Grid.AlignVCenter
-        //effectiveHorizontalItemAlignment: Grid.AlignHCenter
-        //flow: GridLayout.LeftToRight
+        height: heightRectRepeater
+        spacing: 30
 
         Repeater{
-          anchors.fill: parent
+            anchors.fill: parent
             id: viewwewRepeater
-//            anchors.fill: parent
-//            model: countTargets
+            //            anchors.fill: parent
+            //            model: countTargets
             Rectangle{
-
+                id: rectReapeater
                 height: parent.height
-                width: parent.width / 3 - 100
-                border.width: 1
-                color: "red"
+                width: widthRectRepeater
+                color: "transparent"
+
+                Image {
+                    anchors.fill: parent
+                    //          fillMode: Image.PreserveAspectCrop
+                    source: "qrc:/picturesTrainingWindow/Mishen_ne_aktiv.tif"
+
+                }
+
+                Text {
+                    id: parameterstrainingText
+                    anchors.fill: parent
+                    text: qsTr("Мишень " + (index+1))
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    //                fontSize
+                    font.pointSize: 22/*parametersTrainingMouse.containsMouse ? fontSizeHover : fontSize*/
+                    font.family: "Calibri"
+                    //font.bold: parametersTrainingMouse.containsMouse ? true : false
+                    color: "white"
+                }
+
+                MouseArea{
+                    anchors.fill: parent
+
+                    onClicked: {
+                        color = "green"
+                    }
+                }
             }
-            Component.onCompleted: {
-                console.log(model, "23123123")
-            }
+//            Component.onCompleted: {
+//                console.log(model, "23123123")
+//            }
         }
     }
-
 }
 
 /*##^##
