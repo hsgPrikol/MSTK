@@ -13,7 +13,7 @@ ApplicationWindow{
     title: "Settings"
     //    visible: false
 
-    property int widthRectRepeater: 250
+    property int widthRectRepeater: 300
     property int heightRectRepeater: 50
 
     function getTimeAndDate()
@@ -28,6 +28,11 @@ ApplicationWindow{
         //viewwewGridLayout.columns = mainClass.getCountTargets()
         viewwewRepeater.model = mainClass.getCountTargets()
         viewwewRow.width = (widthRectRepeater + viewwewRow.spacing) * viewwewRepeater.model
+        widgetShooting.startTimer()
+        widgetShooting.setNameWidget("Общий")
+
+        currentTargetActiv = viewwewRepeater.itemAt(0)
+        currentTargetActiv.setImageActiv()
     }
 
     signal signalViewwewExit
@@ -38,7 +43,7 @@ ApplicationWindow{
         anchors.rightMargin: 189
         anchors.bottomMargin: 130
         anchors.leftMargin: 175
-        anchors.topMargin: 202
+        anchors.topMargin: 228
 
     }
 
@@ -211,59 +216,84 @@ ApplicationWindow{
         }
     }
 
+    property var currentTargetActiv
+
+
+
     Row {
         id: viewwewRow
 
         anchors.horizontalCenter: parent.horizontalCenter
-        y: 99
+        y: 159
 
         height: heightRectRepeater
         spacing: 30
 
-        Repeater{
-            anchors.fill: parent
+        Repeater {
             id: viewwewRepeater
+            anchors.fill: parent
+
+
             //            anchors.fill: parent
             //            model: countTargets
-            Rectangle{
+            Rectangle {
                 id: rectReapeater
                 height: parent.height
                 width: widthRectRepeater
                 color: "transparent"
 
+                function setImageActiv()
+                {
+                    imageButton.source = "qrc:/picturesTrainingWindow/Mishen_aktiv_2.tif"
+                    repeaterRectText.color = "white"
+                }
+
+                function setImageNoActiv()
+                {
+                    imageButton.source = "qrc:/picturesTrainingWindow/Mishen_ne_aktiv_2.tif"
+                    repeaterRectText.color = "black"
+                }
+
                 Image {
+                    id: imageButton
                     anchors.fill: parent
                     //          fillMode: Image.PreserveAspectCrop
-                    source: "qrc:/picturesTrainingWindow/Mishen_ne_aktiv.tif"
+                    source: "qrc:/picturesTrainingWindow/Mishen_ne_aktiv_2.tif"
+                    MouseArea {
+                        id: imageRepeaterMouse
+                        anchors.fill: parent
 
-                }
+                        onClicked: {
+                            currentTargetActiv.setImageNoActiv()
+                            currentTargetActiv = rectReapeater
+                            currentTargetActiv.setImageActiv()
+                        }
+                    }
 
-                Text {
-                    id: parameterstrainingText
-                    anchors.fill: parent
-                    text: qsTr("Мишень " + (index+1))
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    //                fontSize
-                    font.pointSize: 22/*parametersTrainingMouse.containsMouse ? fontSizeHover : fontSize*/
-                    font.family: "Calibri"
-                    //font.bold: parametersTrainingMouse.containsMouse ? true : false
-                    color: "white"
-                }
-
-                MouseArea{
-                    anchors.fill: parent
-
-                    onClicked: {
-                        color = "green"
+                    Text {
+                        id: repeaterRectText
+                        anchors.fill: parent
+                        text: qsTr("Мишень " + (index+1))
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        //                fontSize
+                        font.pointSize: 22/*parametersTrainingMouse.containsMouse ? fontSizeHover : fontSize*/
+                        font.family: "Calibri"
+                        //font.bold: parametersTrainingMouse.containsMouse ? true : false
+                        color: "#000000"
                     }
                 }
             }
-//            Component.onCompleted: {
-//                console.log(model, "23123123")
-//            }
         }
     }
+
+    WidgetShooting {
+        id: widgetShooting
+        x: 0
+        y: 86
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
 }
 
 /*##^##

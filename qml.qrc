@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>RectGreen.qml</file>
         <file>startWindow/StartWindow.qml</file>
         <file>startWindow/Settings.qml</file>
         <file>pictures/Big_Nastroiki.tif</file>
@@ -42,5 +41,9 @@
         <file>picturesTrainingWindow/Spravka.tif</file>
         <file>picturesTrainingWindow/TimeLine.tif</file>
         <file>picturesTrainingWindow/Verh.tif</file>
+        <file>picturesTrainingWindow/Mishen_aktiv_2.tif</file>
+        <file>picturesTrainingWindow/Mishen_ne_aktiv_2.tif</file>
+        <file>startWindow/WidgetShooting.qml</file>
+        <file>startWindow/RectGreen.qml</file>
     </qresource>
 </RCC>

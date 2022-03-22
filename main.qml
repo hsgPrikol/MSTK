@@ -15,8 +15,6 @@ Window {
     //    flags: Qt.FramelessWindowHint
     property var textTime: ""
 
-
-
     //    Rectangle {
     //        Text {
     //            id: name
@@ -41,33 +39,33 @@ Window {
     //        changedWidthSignal.connect(window.log)
     //    }
 
-    Timer {
-        id: timerRect
-        property int count: -1
-        property int xRow: 0
-        interval: 500
-        running: true
-        repeat: true
+//    Timer {
+//        id: timerRect
+//        property int count: -1
+//        property int xRow: 0
+//        interval: 500
+//        running: true
+//        repeat: true
 
-        onTriggered: {
-            var rectCreator = Qt.createComponent("RectGreen.qml")
+//        onTriggered: {
+//            var rectCreator = Qt.createComponent("RectGreen.qml")
 
-            timerRect.count = timerRect.count + 1
+//            timerRect.count = timerRect.count + 1
 
-            timerRect.xRow = (sizeRectangleCurrent * timerRect.count);
+//            timerRect.xRow = (sizeRectangleCurrent * timerRect.count);
 
-            var Rect = rectCreator.createObject(row,
-                                                {
-                                                    x: timerRect.xRow,
-                                                    countText: timerRect.count,
-                                                    colorChange: Qt.rgba(0.0, 1.0, 0.0 , 0.5),
-                                                    dfltWidth: sizeRectangleCurrent
-                                                });
+//            var Rect = rectCreator.createObject(row,
+//                                                {
+//                                                    x: timerRect.xRow,
+//                                                    countText: timerRect.count,
+//                                                    colorChange: Qt.rgba(0.0, 1.0, 0.0 , 0.5),
+//                                                    dfltWidth: sizeRectangleCurrent
+//                                                });
 
-            changedWidthSignal.connect(Rect.setWidthRectGreen)
-//            print(timerRect.count)
-        }
-    }
+//            changedWidthSignal.connect(Rect.setWidthRectGreen)
+////            print(timerRect.count)
+//        }
+//    }
 
     Rectangle{
         id: windowRect
@@ -172,7 +170,7 @@ Window {
             anchors.fill: parent
 
             onClicked: {
-                timerRect.running = !timerRect.running
+//                timerRect.running = !timerRect.running
 
                 startWindow.show()
                 window.hide()
