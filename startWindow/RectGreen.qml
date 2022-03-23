@@ -14,6 +14,9 @@ Item {
 
     property var dfltWidth: 40
     property var dfltHeight: 40
+
+    property var attribute: -1
+
 //    property var dfltX: 42
 
     Rectangle{
@@ -30,6 +33,12 @@ Item {
             text: countText
         }
 
+        Text {
+            anchors.horizontalCenter: test.horizontalCenter
+            anchors.verticalCenter: test.verticalCenter
+            text: attribute
+        }
+
         MouseArea{
             id: mouse
             anchors.fill: parent
@@ -39,6 +48,13 @@ Item {
                 print(test.color)
             }
         }
+    }
+
+    function changeActivTarget(newActivTaret)
+    {
+        rectGreen.visible = newActivTaret != attribute ? false : true
+
+        console.log("function changeActivTarget(newActivTaret)")
     }
 
     function setWidthRectGreen(newWidth, newXPosition)

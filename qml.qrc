@@ -45,5 +45,6 @@
         <file>picturesTrainingWindow/Mishen_ne_aktiv_2.tif</file>
         <file>startWindow/WidgetShooting.qml</file>
         <file>startWindow/RectGreen.qml</file>
+        <file>TimerGeneral.qml</file>
     </qresource>
 </RCC>

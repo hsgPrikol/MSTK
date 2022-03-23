@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
- import QtQuick.Layouts 1.15
+import QtQuick.Layouts 1.15
 
 import "./startWindow"
 
@@ -14,6 +14,12 @@ Window {
     title: qsTr("MSTK929")
     //    flags: Qt.FramelessWindowHint
     property var textTime: ""
+
+    Component.onCompleted: {
+        mainClass.getDate()
+        mainClass.getTime()
+
+    }
 
     //    Rectangle {
     //        Text {
@@ -39,33 +45,33 @@ Window {
     //        changedWidthSignal.connect(window.log)
     //    }
 
-//    Timer {
-//        id: timerRect
-//        property int count: -1
-//        property int xRow: 0
-//        interval: 500
-//        running: true
-//        repeat: true
+    //    Timer {
+    //        id: timerRect
+    //        property int count: -1
+    //        property int xRow: 0
+    //        interval: 500
+    //        running: true
+    //        repeat: true
 
-//        onTriggered: {
-//            var rectCreator = Qt.createComponent("RectGreen.qml")
+    //        onTriggered: {
+    //            var rectCreator = Qt.createComponent("RectGreen.qml")
 
-//            timerRect.count = timerRect.count + 1
+    //            timerRect.count = timerRect.count + 1
 
-//            timerRect.xRow = (sizeRectangleCurrent * timerRect.count);
+    //            timerRect.xRow = (sizeRectangleCurrent * timerRect.count);
 
-//            var Rect = rectCreator.createObject(row,
-//                                                {
-//                                                    x: timerRect.xRow,
-//                                                    countText: timerRect.count,
-//                                                    colorChange: Qt.rgba(0.0, 1.0, 0.0 , 0.5),
-//                                                    dfltWidth: sizeRectangleCurrent
-//                                                });
+    //            var Rect = rectCreator.createObject(row,
+    //                                                {
+    //                                                    x: timerRect.xRow,
+    //                                                    countText: timerRect.count,
+    //                                                    colorChange: Qt.rgba(0.0, 1.0, 0.0 , 0.5),
+    //                                                    dfltWidth: sizeRectangleCurrent
+    //                                                });
 
-//            changedWidthSignal.connect(Rect.setWidthRectGreen)
-////            print(timerRect.count)
-//        }
-//    }
+    //            changedWidthSignal.connect(Rect.setWidthRectGreen)
+    ////            print(timerRect.count)
+    //        }
+    //    }
 
     Rectangle{
         id: windowRect
@@ -74,7 +80,6 @@ Window {
         width: window.width - 100
         anchors.horizontalCenter: parent.horizontalCenter
         color: "red"
-
 
         ScrollView {
             id: scroll
@@ -86,22 +91,22 @@ Window {
             contentHeight: row.height
             ScrollBar.horizontal.position: timerRect.count + 1
             clip: true
-//            ScrollBar.horizontal: ScrollBar{
+            //            ScrollBar.horizontal: ScrollBar{
 
-//                parent: scroll.parent
-//                anchors.top: scroll.top
-//                anchors.left: scroll.right
-//                anchors.bottom: scroll.bottom
-//                anchors.right: scroll.right
+            //                parent: scroll.parent
+            //                anchors.top: scroll.top
+            //                anchors.left: scroll.right
+            //                anchors.bottom: scroll.bottom
+            //                anchors.right: scroll.right
 
-////                MouseArea{
-////                    anchors.fill: parent
+            ////                MouseArea{
+            ////                    anchors.fill: parent
 
-////                    onPressed: {
-////                        print("onPressd")
-////                    }
-//                //}
-//            }
+            ////                    onPressed: {
+            ////                        print("onPressd")
+            ////                    }
+            //                //}
+            //            }
 
 
 
@@ -170,7 +175,7 @@ Window {
             anchors.fill: parent
 
             onClicked: {
-//                timerRect.running = !timerRect.running
+                //                timerRect.running = !timerRect.running
 
                 startWindow.show()
                 window.hide()
@@ -183,22 +188,22 @@ Window {
         }
     }
 
-//    Grid {
-//        x: 171
-//        y: 183
-//        layoutDirection: Qt.LeftToRight
-//        flow: Grid.TopToBottom
-//        rows: 0
-//        verticalItemAlignment: Grid.AlignVCenter
-//        horizontalItemAlignment: Grid.AlignHCenter
-//        columns: 3
-//        spacing: 2
-//        Rectangle { color: "red"; width: 50; height: 50 }
-//        Rectangle { color: "green"; width: 20; height: 50 }
-//        Rectangle { color: "blue"; width: 50; height: 20 }
-//        Rectangle { color: "cyan"; width: 50; height: 50 }
-//        Rectangle { color: "magenta"; width: 10; height: 10 }
-//    }
+    //    Grid {
+    //        x: 171
+    //        y: 183
+    //        layoutDirection: Qt.LeftToRight
+    //        flow: Grid.TopToBottom
+    //        rows: 0
+    //        verticalItemAlignment: Grid.AlignVCenter
+    //        horizontalItemAlignment: Grid.AlignHCenter
+    //        columns: 3
+    //        spacing: 2
+    //        Rectangle { color: "red"; width: 50; height: 50 }
+    //        Rectangle { color: "green"; width: 20; height: 50 }
+    //        Rectangle { color: "blue"; width: 50; height: 20 }
+    //        Rectangle { color: "cyan"; width: 50; height: 50 }
+    //        Rectangle { color: "magenta"; width: 10; height: 10 }
+    //    }
 
 
     Slider {
@@ -267,39 +272,39 @@ Window {
         }
     }
 
-//    Grid {
-//        id: grid
-//        x: 50
-//        y: 352
-//        width: 111
-//        height: 61
-//        transformOrigin: Item.Center
-//        spacing: 2
-//        horizontalItemAlignment: Grid.AlignHCenter
-//        rows: 1
-//        columns: 2
+    //    Grid {
+    //        id: grid
+    //        x: 50
+    //        y: 352
+    //        width: 111
+    //        height: 61
+    //        transformOrigin: Item.Center
+    //        spacing: 2
+    //        horizontalItemAlignment: Grid.AlignHCenter
+    //        rows: 1
+    //        columns: 2
 
-//        Rectangle {
-//            id: rectangle
-//            width: 20
-//            height: 20
-//            color: "#ffffff"
-//        }
+    //        Rectangle {
+    //            id: rectangle
+    //            width: 20
+    //            height: 20
+    //            color: "#ffffff"
+    //        }
 
-//        Rectangle {
-//            id: rectangle1
-//            width: 20
-//            height: 20
-//            color: "#ffffff"
-//        }
+    //        Rectangle {
+    //            id: rectangle1
+    //            width: 20
+    //            height: 20
+    //            color: "#ffffff"
+    //        }
 
-//        Rectangle {
-//            id: rectangle2
-//            width: 20
-//            height: 20
-//            color: "#ffffff"
-//        }
-//    }
+    //        Rectangle {
+    //            id: rectangle2
+    //            width: 20
+    //            height: 20
+    //            color: "#ffffff"
+    //        }
+    //    }
 
     //    MouseArea {
     //        anchors.fill: parent

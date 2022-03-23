@@ -2,6 +2,8 @@
 #define MAINCLASS_H
 
 #include <QObject>
+#include <QDateTime>
+#include <QDebug>
 
 class MainClass : public QObject
 {
@@ -17,6 +19,12 @@ public slots:
     int getCountTargets();
 
     void setCountTargets(int value);
+
+    QString getDate();
+
+    QString getTime();
+
+    int getRandom(int min, int max);
 
 };
 

@@ -14,6 +14,15 @@ Rectangle {
 
     color: "transparent"
 
+    signal onChangeTarget(var attribute)
+
+    property var currentTargetActiv: -1
+
+    function testSignal(attribute)
+    {
+        console.log("qwwwwwwwwwwwwwww ", attribute)
+    }
+
     function startTimer()
     {
         timerRect.start()
@@ -49,28 +58,47 @@ Rectangle {
 
             timerRect.xRow = (sizeRectangleCurrent * timerRect.count);
             var Rect
-            if (timerRect.count % 9)
-            {
-                Rect = rectCreator.createObject(row,
-                                                    {
-                                                        x: timerRect.xRow,
-                                                        countText: timerRect.count,
-                                                        colorChange: "transparent",
-                                                        dfltWidth: sizeRectangleCurrent
-                                                    });
-            }
-            else{
+            //if (timerRect.count % 9)
+            //{
+//                Rect = rectCreator.createObject(row,
+//                                                    {
+//                                                        x: timerRect.xRow,
+//                                                        countText: timerRect.count,
+//                                                        colorChange: "transparent",
+//                                                        dfltWidth: sizeRectangleCurrent,
+//                                                        attribute: getRandom(1,3)
+//                                                    });
+            //}
+            //else{
+
+                var tmpRmdTrgt = mainClass.getRandom(1,3)
+
                 Rect = rectCreator.createObject(row,
                                                     {
                                                         x: timerRect.xRow,
                                                         countText: timerRect.count,
                                                         colorChange: "#92da18",
-                                                        dfltWidth: sizeRectangleCurrent
+                                                        dfltWidth: sizeRectangleCurrent,
+                                                        attribute: tmpRmdTrgt,
+                                                        visible: tmpRmdTrgt == currentTargetActiv ? true : false
                                                     });
-            }
-            changedWidthSignal.connect(Rect.setWidthRectGreen)
+
+
+            //}
+
+            onChangeTarget.connect(Rect.changeActivTarget)
+
+//            onChangeTarget.connect(Rect.changeActivTarget)
+//            changedWidthSignal.connect(Rect.setWidthRectGreen)
+
+//            changedWidthSignal.connect(Rect.setWidthRectGreen)
             //            print(timerRect.count)
         }
+
+//        Component.onCompleted: {
+//            onChangeTarget.connect(window.testSignal)
+//            console.log("onChangeTarget.connect(window.testSignal)")
+//        }
     }
 
     Row {
@@ -126,8 +154,6 @@ Rectangle {
             }
         }
     }
-
-
 }
 
 

@@ -16,6 +16,7 @@ ApplicationWindow{
     property int widthRectRepeater: 300
     property int heightRectRepeater: 50
 
+
     function getTimeAndDate()
     {
         startWindowDateText.text = Qt.formatDateTime(new Date(), "dd.MM.yyyy")
@@ -55,16 +56,16 @@ ApplicationWindow{
         border.color: "#404040"
         border.width: 0
         anchors.top: parent.top
-        Timer {
-            id: startWindowTimer
-            interval: 1000
-            repeat: true
-            running: true
+//        Timer {
+//            id: startWindowTimer
+//            interval: 1000
+//            repeat: true
+//            running: true
 
-            onTriggered: {
-                getTimeAndDate()
-            }
-        }
+//            onTriggered: {
+//                getTimeAndDate()
+//            }
+//        }
 
         Rectangle {
             id: startWindowTimeHourAndMinuts
@@ -267,6 +268,10 @@ ApplicationWindow{
                             currentTargetActiv.setImageNoActiv()
                             currentTargetActiv = rectReapeater
                             currentTargetActiv.setImageActiv()
+
+                            widgetShooting.currentTargetActiv = index + 1
+
+                            widgetShooting.onChangeTarget(index + 1)
                         }
                     }
 
@@ -292,12 +297,21 @@ ApplicationWindow{
         x: 0
         y: 86
         anchors.horizontalCenter: parent.horizontalCenter
+        currentTargetActiv: 1
+    }
+
+    WidgetShooting {
+        id: widgetShootingTargetAll
+        x: 2
+        y: 716
+        anchors.horizontalCenterOffset: 0
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}
+    D{i:0;formeditorZoom:0.5}D{i:28}
 }
 ##^##*/
