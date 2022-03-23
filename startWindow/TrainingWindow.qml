@@ -17,11 +17,13 @@ ApplicationWindow{
     property int heightRectRepeater: 50
 
 
+
     function getTimeAndDate()
     {
         startWindowDateText.text = Qt.formatDateTime(new Date(), "dd.MM.yyyy")
         startWindowHourAndMinutsText.text = Qt.formatTime(new Date(), "hh:mm")
         //        print(Qt.formatDateTime(new Date(), "dd.MM.yyyy"))
+
     }
 
     function showing()

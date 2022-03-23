@@ -49,7 +49,17 @@ ApplicationWindow{
     property int fontSize: 32
     property int fontSizeHover: 36
 
-    property var date: ""
+    property var date
+
+    function slotTimer1Sec() {
+        startWindowDateText.text = mainClass.getDate()
+    }
+
+    Component.onCompleted: {
+        TimerGeneral.timerGeneral_1SecSignal.connect(slotTimer1Sec)
+    }
+
+
 //    property var locale: Qt.locale()
 
     //функция для получения текущей даты и времени.
@@ -350,7 +360,7 @@ ApplicationWindow{
                 anchors.horizontalCenter: startWindowDate.horizontalCenter
                 width: 180
                 height: 35
-                text: ""
+                //text: timerGeneral.textDate
                 font.pixelSize: 22
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignTop

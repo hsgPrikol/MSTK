@@ -26,7 +26,7 @@ QString MainClass::getTime()
 {
     QTime time = QTime::currentTime();
     qDebug() << time.toString("hh:mm");
-    return time.toString("hh:mm");
+    return time.toString("mm:ss");
 }
 
 int MainClass::getRandom(int min, int max)
