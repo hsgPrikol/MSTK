@@ -42,11 +42,13 @@ ApplicationWindow{
 
     WidgetViewWindowTraining {
         id: viewWindowTraining
+        width: 1000
+        height: 500
         anchors.fill: parent
-        anchors.rightMargin: 189
-        anchors.bottomMargin: 130
-        anchors.leftMargin: 175
-        anchors.topMargin: 228
+        anchors.rightMargin: 182
+        anchors.bottomMargin: 110
+        anchors.leftMargin: 182
+        anchors.topMargin: 195
 
     }
 
@@ -314,6 +316,6 @@ ApplicationWindow{
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:28}
+    D{i:0;formeditorZoom:0.5}
 }
 ##^##*/

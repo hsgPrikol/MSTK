@@ -46,5 +46,19 @@
         <file>startWindow/WidgetShooting.qml</file>
         <file>startWindow/RectGreen.qml</file>
         <file>TimerGeneral.qml</file>
+        <file>model/C.obj</file>
+        <file>model/F.obj</file>
+        <file>model/FL.obj</file>
+        <file>model/FP.obj</file>
+        <file>model/LB.obj</file>
+        <file>model/Nojki.obj</file>
+        <file>model/PB.obj</file>
+        <file>model/SLF.obj</file>
+        <file>model/SLT.obj</file>
+        <file>model/SPF.obj</file>
+        <file>model/SPT.obj</file>
+        <file>model/T.obj</file>
+        <file>model/TL.obj</file>
+        <file>model/TP.obj</file>
     </qresource>
 </RCC>

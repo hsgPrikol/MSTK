@@ -21,6 +21,8 @@ Rectangle {
     signal signalView3dExit
 
 
+
+
 //    MouseArea {
 //        anchors.fill: parent
 //        //acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -62,8 +64,106 @@ Rectangle {
 //    }
 
 
+    property int rotationXEntityCopter: 135
+    property int rotationYEntityCopter: 25
+    property int rotationZEntityCopter: 0
 
+    property real scaleEntityCopter: 0.55
 
+    property vector3d translationEntityCopter: Qt.vector3d(0.0, 10.0, 0.0)
+
+    function addHitEntityCopter(zone, newColor)
+    {
+
+        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
+
+        console.log(newColor)
+
+        switch (zone)
+        {
+
+        case 0:
+        {
+           phongMaterial_C.ambient = newColor
+           break
+        }
+
+        case 1:
+        {
+           phongMaterial_F.ambient = newColor
+           break
+        }
+
+        case 2:
+        {
+           phongMaterial_FL.ambient = newColor
+           break
+        }
+
+        case 3:
+        {
+           phongMaterial_FP.ambient = newColor
+           break
+        }
+
+        case 4:
+        {
+           phongMaterial_LB.ambient = newColor
+           break
+        }
+
+        case 5:
+        {
+           phongMaterial_PB.ambient = newColor
+           break
+        }
+
+        case 6:
+        {
+           phongMaterial_SLF.ambient = newColor
+           break
+        }
+
+        case 7:
+        {
+           phongMaterial_SLT.ambient = newColor
+           break
+        }
+
+        case 8:
+        {
+           phongMaterial_SPF.ambient = newColor
+           break
+        }
+
+        case 9:
+        {
+           phongMaterial_SPT.ambient = newColor
+           break
+        }
+
+        case 10:
+        {
+           phongMaterial_T.ambient = newColor
+           break
+        }
+
+        case 11:
+        {
+           phongMaterial_TL.ambient = newColor
+           break
+        }
+
+        case 12:
+        {
+           phongMaterial_TP.ambient = newColor
+           break
+        }
+
+        }
+
+//
+    }
 
 
     Scene3D {
@@ -96,8 +196,8 @@ Rectangle {
             Camera {
                 id: camera
                 nearPlane: 0.1
-                farPlane: 1000.0
-                position: Qt.vector3d(0.0, 0.0, 800.0)
+                farPlane: 1500.0
+                position: Qt.vector3d(0.0, 0.0, 500.0)
 
                 upVector: Qt.vector3d(0.0, 1.0, 0.0)
                 viewCenter: Qt.vector3d(0.0, 0.0, 0.0)
@@ -243,65 +343,467 @@ Rectangle {
 //                }
 //            }
 
-            Entity {
-                id: entityCopter
 
-                //DefaultMaterial
+
+            Entity {
+                id: entityCopter_C
 
                 PhongMaterial {
-                    id: phongMaterial
+                    id: phongMaterial_C
                     ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
-                    //ambient: "red"
-                    //diffuse: Qt.rgba(1, 1, 1, 1)
-                    //specular: Qt.rgba(1, 1, 1, 1)
-                    //shininess: 0.0
                 }
-
-//                DiffuseSpecularMaterial {
-//                                    id: baseCuboidMaterial
-//                                    ambient: "red"
-//                                    //shininess: 100
-//                                }
-
-//                GoochMaterial
-//                {
-//                    id: baseMaterial
-//                    alpha: 1.0
-//                    diffuse: "red"
-//                    specular: "red"
-//                    warm: "red"
-//                    cool: "red"
-//                    beta: 1.0
-//                    shininess: 1.0
-//                }
 
                 Mesh {
-                    id: sphereMesh
-                    source: "qrc:/model/copter.obj"
+                    id: c_obj
+                    source: "qrc:/model/C.obj"
                 }
-
 
                 Transform {
-                    id: sphereMeshTransform
-                    rotationX: 0
-                    rotationY: 0
-                    rotationZ: 0
-                    translation: Qt.vector3d(0, 0, 0)
+                    id: sphereMeshTransform_C
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
                 }
 
-                RotationAnimation {
-                    id: rotationAnimation
-                    target: sphereMeshTransform
-                    properties: "rotationY"
-                    loops: Animation.Infinite
-                    from: 0
-                    to: 360
-                    duration: 10000
-                    running: false
+                Component.onCompleted:
+                {
+                    console.log(rotationXentityCopter)
+                    console.log(sphereMeshTransform_C.rotationX)
+                    console.log("test")
                 }
 
-                components: [sphereMesh, phongMaterial, sphereMeshTransform, rotationAnimation]
+                components: [c_obj, phongMaterial_C, sphereMeshTransform_C]
             }
+
+            Entity {
+                id: entityCopter_F
+
+                PhongMaterial {
+                    id: phongMaterial_F
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: f_obj
+                    source: "qrc:/model/F.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_F
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [f_obj, phongMaterial_F, sphereMeshTransform_F]
+            }
+
+            Entity {
+                id: entityCopter_FL
+
+                PhongMaterial {
+                    id: phongMaterial_FL
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: fl_obj
+                    source: "qrc:/model/FL.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_FL
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [fl_obj, phongMaterial_FL, sphereMeshTransform_FL]
+            }
+
+            Entity {
+                id: entityCopter_FP
+
+                PhongMaterial {
+                    id: phongMaterial_FP
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: fp_obj
+                    source: "qrc:/model/FP.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_FP
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [fp_obj, phongMaterial_FP, sphereMeshTransform_FP]
+            }
+
+            Entity {
+                id: entityCopter_LB
+
+                PhongMaterial {
+                    id: phongMaterial_LB
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: lb_obj
+                    source: "qrc:/model/LB.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_LB
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [lb_obj, phongMaterial_LB, sphereMeshTransform_LB]
+            }
+
+            Entity {
+                id: entityCopter_NOJKI
+
+                PhongMaterial {
+                    id: phongMaterial_NOJKI
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: nojki_obj
+                    source: "qrc:/model/Nojki.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_NOJKI
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [nojki_obj, phongMaterial_NOJKI, sphereMeshTransform_NOJKI]
+            }
+
+            Entity {
+                id: entityCopter_PB
+
+                PhongMaterial {
+                    id: phongMaterial_PB
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: pb_obj
+                    source: "qrc:/model/PB.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_PB
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [pb_obj, phongMaterial_PB, sphereMeshTransform_PB]
+            }
+
+            Entity {
+                id: entityCopter_SLF
+
+                PhongMaterial {
+                    id: phongMaterial_SLF
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: slf_obj
+                    source: "qrc:/model/SLF.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_SLF
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [slf_obj, phongMaterial_SLF, sphereMeshTransform_SLF]
+            }
+
+            Entity {
+                id: entityCopter_SLT
+
+                PhongMaterial {
+                    id: phongMaterial_SLT
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: slt_obj
+                    source: "qrc:/model/SLT.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_SLT
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [slt_obj, phongMaterial_SLT, sphereMeshTransform_SLT]
+            }
+
+            Entity {
+                id: entityCopter_SPF
+
+                PhongMaterial {
+                    id: phongMaterial_SPF
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: spf_obj
+                    source: "qrc:/model/SPF.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_SPF
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [spf_obj, phongMaterial_SPF, sphereMeshTransform_SPF]
+            }
+
+            Entity {
+                id: entityCopter_SPT
+
+                PhongMaterial {
+                    id: phongMaterial_SPT
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: spt_obj
+                    source: "qrc:/model/SPT.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_SPT
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [spt_obj, phongMaterial_SPT, sphereMeshTransform_SPT]
+            }
+
+            Entity {
+                id: entityCopter_T
+
+                PhongMaterial {
+                    id: phongMaterial_T
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: t_obj
+                    source: "qrc:/model/T.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_T
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [t_obj, phongMaterial_T, sphereMeshTransform_T]
+            }
+
+            Entity {
+                id: entityCopter_TL
+
+                PhongMaterial {
+                    id: phongMaterial_TL
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: tl_obj
+                    source: "qrc:/model/TL.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_TL
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [tl_obj, phongMaterial_TL, sphereMeshTransform_TL]
+            }
+
+
+            Entity {
+                id: entityCopter_TP
+
+                PhongMaterial {
+                    id: phongMaterial_TP
+                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                }
+
+                Mesh {
+                    id: tp_obj
+                    source: "qrc:/model/TP.obj"
+                }
+
+                Transform {
+                    id: sphereMeshTransform_TP
+                    rotationX: rotationXEntityCopter
+                    rotationY: rotationYEntityCopter
+                    rotationZ: rotationZEntityCopter
+                    translation: translationEntityCopter
+                    scale: scaleEntityCopter
+                }
+
+                components: [tp_obj, phongMaterial_TP, sphereMeshTransform_TP]
+            }
+//            Entity {
+//                id: entityCopter
+
+//                PhongMaterial {
+//                    id: phongMaterial
+//                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+//                }
+
+
+
+//                Mesh {
+//                    id: c_obj
+//                    source: "qrc:/model/C.obj"
+//                }
+
+//                Mesh {
+//                    id: f_obj
+//                    source: "qrc:/model/F.obj"
+//                }
+
+//                Mesh {
+//                    id: fl_obj
+//                    source: "qrc:/model/FL.obj"
+//                }
+
+//                Mesh {
+//                    id: fp_obj
+//                    source: "qrc:/model/FP.obj"
+//                }
+
+//                Mesh {
+//                    id: lb_obj
+//                    source: "qrc:/model/LB.obj"
+//                }
+
+//                Mesh {
+//                    id: nojki_obj
+//                    source: "qrc:/model/Nojki.obj"
+//                }
+
+//                Mesh {
+//                    id: pb_obj
+//                    source: "qrc:/model/PB.obj"
+//                }
+
+//                Mesh {
+//                    id: slf_obj
+//                    source: "qrc:/model/SLF.obj"
+//                }
+
+//                Mesh {
+//                    id: slt_obj
+//                    source: "qrc:/model/SLT.obj"
+//                }
+
+//                Mesh {
+//                    id: spf_obj
+//                    source: "qrc:/model/SPF.obj"
+//                }
+
+//                Mesh {
+//                    id: spt_obj
+//                    source: "qrc:/model/SPT.obj"
+//                }
+
+//                Mesh {
+//                    id: t_obj
+//                    source: "qrc:/model/T.obj"
+//                }
+
+//                Mesh {
+//                    id: tl_obj
+//                    source: "qrc:/model/TL.obj"
+//                }
+
+//                Mesh {
+//                    id: tp_obj
+//                    source: "qrc:/model/TP.obj"
+//                }
+
+
+//                Transform {
+//                    id: sphereMeshTransform
+//                    rotationX: 0
+//                    rotationY: 0
+//                    rotationZ: 0
+//                    translation: Qt.vector3d(0, 0, 0)
+//                }
+
+//                RotationAnimation {
+//                    id: rotationAnimation
+//                    target: sphereMeshTransform
+//                    properties: "rotationY"
+//                    loops: Animation.Infinite
+//                    from: 0
+//                    to: 360
+//                    duration: 10000
+//                    running: false
+//                }
+
+//                components: [c_obj, /*f_obj,*/ fl_obj, /*fp_obj, lb_obj, nojki_obj, pb_obj, slf_obj, slt_obj, spf_obj, spt_obj, t_obj, tl_obj, tp_obj,*/ phongMaterial, sphereMeshTransform, rotationAnimation]
+//            }
 
             //components: [mouse]
 
@@ -522,67 +1024,107 @@ Rectangle {
     }
 
     Keys.onPressed: {
-        if (event.key === Qt.Key_A)
+        if (event.key === Qt.Key_Q)
         {
-            transformMainLight.translation.y += 10
+            console.log("Q")
+            mainClass.newHit(0)
 
-            console.log(transformMainLight.translation);
             event.accepted = true;
         }
 
-        if (event.key === Qt.Key_D)
+        if (event.key === Qt.Key_A)
         {
-            transformMainLight.translation.y -= 10
+            console.log("A")
+            mainClass.newHit(1)
 
-            console.log(transformMainLight.translation);
+            event.accepted = true;
+        }
+
+        if (event.key === Qt.Key_Z)
+        {
+            console.log("Z")
+            mainClass.newHit(2)
+
             event.accepted = true;
         }
 
         if (event.key === Qt.Key_W)
         {
-            positionMainLight.translation.z += 10
+            console.log("W")
+            mainClass.newHit(3)
 
-            console.log(positionMainLight.translation);
             event.accepted = true;
         }
 
         if (event.key === Qt.Key_S)
         {
-            positionMainLight.translation.z -= 10
+            console.log("S")
+            mainClass.newHit(4)
 
-            console.log(positionMainLight.translation);
             event.accepted = true;
         }
 
-        if (event.key === Qt.Key_Down)
+        if (event.key === Qt.Key_X)
         {
-            positionMainLight.translation.y -= 10
+            console.log("X")
+            mainClass.newHit(5)
 
-            console.log(positionMainLight.translation);
             event.accepted = true;
         }
 
-        if (event.key === Qt.Key_Up)
+        if (event.key === Qt.Key_E)
         {
-            positionMainLight.translation.y += 10
+            console.log("E")
+            mainClass.newHit(6)
 
-            console.log(positionMainLight.translation);
             event.accepted = true;
         }
 
-        if (event.key === Qt.Key_Right)
+        if (event.key === Qt.Key_D)
         {
-            mainLight.intensity += 0.1
+            console.log("D")
+            mainClass.newHit(7)
 
-            console.log(mainLight.intensity);
             event.accepted = true;
         }
 
-        if (event.key === Qt.Key_Left)
+        if (event.key === Qt.Key_C)
         {
-            mainLight.intensity -= 0.1
+            console.log("C")
+            mainClass.newHit(8)
 
-            console.log(mainLight.intensity);
+            event.accepted = true;
+        }
+
+        if (event.key === Qt.Key_R)
+        {
+            console.log("R")
+            mainClass.newHit(9)
+
+            event.accepted = true;
+        }
+
+        if (event.key === Qt.Key_F)
+        {
+            console.log("F")
+            mainClass.newHit(10)
+
+            event.accepted = true;
+        }
+
+        if (event.key === Qt.Key_V)
+        {
+            console.log("V")
+            mainClass.newHit(11)
+
+            event.accepted = true;
+        }
+
+        if (event.key === Qt.Key_T)
+        {
+            console.log("T")
+            mainClass.newHit(12)
+
             event.accepted = true;
         }
     }
@@ -618,6 +1160,13 @@ Rectangle {
             //phongMaterial.ambient =  Qt.rgba(Math.random(), Math.random(), Math.random())
 
             //print(vector3dAnimation_1.running)
+        }
+
+        Component.onCompleted: {
+            mainClass.setStartColor(phongMaterial_F.ambient)
+            mainClass.onNewHitCopter.connect(addHitEntityCopter)
+
+            console.log("connect!!!!!!!!!!!!!!!!!")
         }
     }
 

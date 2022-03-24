@@ -2,7 +2,24 @@
 
 MainClass::MainClass(QObject *parent) : QObject(parent)
 {
+    tableHitsTime.resize(13);
 
+    goalColorCopter = QColor(255, 0, 0, 255);
+}
+
+QColor MainClass::getNextColorForZone(int currentCountHit)
+{
+    if(currentCountHit > MAX_COUNT_HIT)
+    {
+        currentCountHit = MAX_COUNT_HIT;
+    }
+
+    return QColor(
+                    startColorCopter.red() + (((goalColorCopter.red() - startColorCopter.red()) / (float)MAX_COUNT_HIT) * (float)currentCountHit),
+                    startColorCopter.green() + (((goalColorCopter.green() - startColorCopter.green()) / (float)MAX_COUNT_HIT) * (float)currentCountHit),
+                    startColorCopter.blue() + (((goalColorCopter.blue() - startColorCopter.blue()) / (float)MAX_COUNT_HIT) * (float)currentCountHit),
+                    255
+                );
 }
 
 int MainClass::getCountTargets()
@@ -32,6 +49,18 @@ QString MainClass::getTime()
 int MainClass::getRandom(int min, int max)
 {
     qsrand(QDateTime::currentMSecsSinceEpoch());
-    qDebug() << (qrand() % ((max + 1) - min) + min);
+//    qDebug() << (qrand() % ((max + 1) - min) + min);
     return (qrand() % ((max + 1) - min) + min);
+}
+
+void MainClass::newHit(int zone)
+{
+    tableHitsTime[zone].append(QTime::currentTime());
+
+    emit onNewHitCopter(zone, getNextColorForZone(tableHitsTime[zone].size()));
+}
+
+void MainClass::setStartColor(QColor color)
+{
+    startColorCopter = color;
 }
