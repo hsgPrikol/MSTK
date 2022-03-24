@@ -1093,6 +1093,11 @@ Rectangle {
                 mainClass.newHit(5, i)
             }
 
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(5, i)
+            }
+
             event.accepted = true;
         }
 
