@@ -16,23 +16,40 @@ ApplicationWindow{
     property int widthRectRepeater: 300
     property int heightRectRepeater: 50
 
+//    function getTimeAndDate()
+//    {
+//        startWindowDateText.text = Qt.formatDateTime(new Date(), "dd.MM.yyyy")
+//        startWindowHourAndMinutsText.text = Qt.formatTime(new Date(), "hh:mm")
+//        //        print(Qt.formatDateTime(new Date(), "dd.MM.yyyy"))
 
-
-    function getTimeAndDate()
+//    }
+    function getTimeFromC()
     {
-        startWindowDateText.text = Qt.formatDateTime(new Date(), "dd.MM.yyyy")
-        startWindowHourAndMinutsText.text = Qt.formatTime(new Date(), "hh:mm")
-        //        print(Qt.formatDateTime(new Date(), "dd.MM.yyyy"))
+        startWindowHourAndMinutsText.text = mainClass.getTime()
+    }
+
+    function getDateFromC()
+    {
+        startWindowDateText.text = mainClass.getDate()
+    }
+
+    function handlerNewHit(target, zone)
+    {
+        console.log("~~~~1.1~~~")
+        widgetShootingTargetAll.handlerNewHit(target, -1)
+        console.log("~~~~1.2~~~")
+        widgetShooting.handlerNewHit(target, zone)
+        console.log("~~~~1.3~~~")
 
     }
 
     function showing()
     {
-        //viewwewGridLayout.columns = mainClass.getCountTargets()
         viewwewRepeater.model = mainClass.getCountTargets()
         viewwewRow.width = (widthRectRepeater + viewwewRow.spacing) * viewwewRepeater.model
-        widgetShooting.startTimer()
-        widgetShooting.setNameWidget("Общий")
+
+        widgetShootingTargetAll.setNameWidget("Общий")
+        widgetShooting.setNameWidget("Мишень 1")
 
         currentTargetActiv = viewwewRepeater.itemAt(0)
         currentTargetActiv.setImageActiv()
@@ -83,7 +100,7 @@ ApplicationWindow{
                 width: 180
                 height: 35
                 color: "#ffffff"
-                text: ""
+
                 anchors.verticalCenter: startWindowTimeHourAndMinuts.verticalCenter
                 font.pixelSize: 22
                 horizontalAlignment: Text.AlignHCenter
@@ -105,7 +122,7 @@ ApplicationWindow{
                 width: 180
                 height: 35
                 color: "#ffffff"
-                text: ""
+
                 anchors.verticalCenter: startWindowDate.verticalCenter
                 font.pixelSize: 22
                 horizontalAlignment: Text.AlignHCenter
@@ -273,9 +290,11 @@ ApplicationWindow{
                             currentTargetActiv = rectReapeater
                             currentTargetActiv.setImageActiv()
 
-                            widgetShooting.currentTargetActiv = index + 1
+                            widgetShooting.currentTargetActiv = index
 
-                            widgetShooting.onChangeTarget(index + 1)
+                            widgetShooting.onChangeTarget(index)
+
+                            widgetShootingTargetAll.setNameWidget("Мишень " + (index + 1))
                         }
                     }
 
@@ -298,20 +317,25 @@ ApplicationWindow{
 
     WidgetShooting {
         id: widgetShooting
-        x: 0
-        y: 86
+        x: 2
+        y: 716
         anchors.horizontalCenter: parent.horizontalCenter
         currentTargetActiv: 1
     }
 
     WidgetShooting {
         id: widgetShootingTargetAll
-        x: 2
-        y: 716
+        x: 0
+        y: 86
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
+    Component.onCompleted: {
+        mainClass.onGetDate.connect(getDateFromC)
+        mainClass.onGetTime.connect(getTimeFromC)
+        mainClass.onNewHitCopter.connect(handlerNewHit)
+    }
 }
 
 /*##^##

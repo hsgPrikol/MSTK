@@ -75,7 +75,7 @@ Rectangle {
     function addHitEntityCopter(zone, newColor)
     {
 
-        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
+//        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
 
         console.log(newColor)
 
@@ -1027,7 +1027,11 @@ Rectangle {
         if (event.key === Qt.Key_Q)
         {
             console.log("Q")
-            mainClass.newHit(0)
+
+            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(0, 0)
+            }
 
             event.accepted = true;
         }
@@ -1035,7 +1039,11 @@ Rectangle {
         if (event.key === Qt.Key_A)
         {
             console.log("A")
-            mainClass.newHit(1)
+
+            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(1, 1)
+            }
 
             event.accepted = true;
         }
@@ -1043,7 +1051,11 @@ Rectangle {
         if (event.key === Qt.Key_Z)
         {
             console.log("Z")
-            mainClass.newHit(2)
+
+            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(2, 2)
+            }
 
             event.accepted = true;
         }
@@ -1051,7 +1063,11 @@ Rectangle {
         if (event.key === Qt.Key_W)
         {
             console.log("W")
-            mainClass.newHit(3)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(3, i)
+            }
 
             event.accepted = true;
         }
@@ -1059,7 +1075,11 @@ Rectangle {
         if (event.key === Qt.Key_S)
         {
             console.log("S")
-            mainClass.newHit(4)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(4, i)
+            }
 
             event.accepted = true;
         }
@@ -1067,7 +1087,11 @@ Rectangle {
         if (event.key === Qt.Key_X)
         {
             console.log("X")
-            mainClass.newHit(5)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(5, i)
+            }
 
             event.accepted = true;
         }
@@ -1075,7 +1099,11 @@ Rectangle {
         if (event.key === Qt.Key_E)
         {
             console.log("E")
-            mainClass.newHit(6)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(6, i)
+            }
 
             event.accepted = true;
         }
@@ -1083,7 +1111,11 @@ Rectangle {
         if (event.key === Qt.Key_D)
         {
             console.log("D")
-            mainClass.newHit(7)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(7, i)
+            }
 
             event.accepted = true;
         }
@@ -1091,7 +1123,11 @@ Rectangle {
         if (event.key === Qt.Key_C)
         {
             console.log("C")
-            mainClass.newHit(8)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(8, i)
+            }
 
             event.accepted = true;
         }
@@ -1099,7 +1135,11 @@ Rectangle {
         if (event.key === Qt.Key_R)
         {
             console.log("R")
-            mainClass.newHit(9)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(9, i)
+            }
 
             event.accepted = true;
         }
@@ -1107,7 +1147,11 @@ Rectangle {
         if (event.key === Qt.Key_F)
         {
             console.log("F")
-            mainClass.newHit(10)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(10, i)
+            }
 
             event.accepted = true;
         }
@@ -1115,7 +1159,11 @@ Rectangle {
         if (event.key === Qt.Key_V)
         {
             console.log("V")
-            mainClass.newHit(11)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(11, i)
+            }
 
             event.accepted = true;
         }
@@ -1123,7 +1171,11 @@ Rectangle {
         if (event.key === Qt.Key_T)
         {
             console.log("T")
-            mainClass.newHit(12)
+
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(12, i)
+            }
 
             event.accepted = true;
         }
@@ -1146,7 +1198,7 @@ Rectangle {
 //            print("work")
             //vector3dAnimation_1.running = !(vector3dAnimation_1.running)
 
-            parallelAnimationOut.running = true
+            //parallelAnimationOut.running = true
             //print(parallelAnimationOut.alwaysRunToEnd)
 
 //            console.log("constantAttenuation   " + spotLight.constantAttenuation)
@@ -1164,9 +1216,9 @@ Rectangle {
 
         Component.onCompleted: {
             mainClass.setStartColor(phongMaterial_F.ambient)
-            mainClass.onNewHitCopter.connect(addHitEntityCopter)
+            mainClass.onNewHitCopterUpdateColor.connect(addHitEntityCopter)
 
-            console.log("connect!!!!!!!!!!!!!!!!!")
+//            console.log("connect!!!!!!!!!!!!!!!!!")
         }
     }
 

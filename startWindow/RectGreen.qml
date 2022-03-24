@@ -4,6 +4,7 @@ import QtQuick.Controls 2.15
 
 Item {
     id: rectGreen
+    property var textInRect
     property var countText: 1
     property var colorChange: Qt.rgba(Math.random(),Math.random(),Math.random(), 0.5)
 
@@ -31,13 +32,17 @@ Item {
 
         Text {
             text: countText
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignTop
         }
 
         Text {
+            anchors.fill: parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             anchors.horizontalCenter: test.horizontalCenter
             anchors.verticalCenter: test.verticalCenter
-            text: attribute
-        }
+                    }
 
         MouseArea{
             id: mouse
@@ -66,3 +71,9 @@ Item {
         //rectGreen.dfltWidth = newWidth
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

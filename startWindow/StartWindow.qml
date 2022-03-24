@@ -55,8 +55,24 @@ ApplicationWindow{
         startWindowDateText.text = mainClass.getDate()
     }
 
+    function getDateFromC()
+    {
+        startWindowDateText.text = mainClass.getDate()
+    }
+
+    function getTimeFromC()
+    {
+        startWindowHourAndMinutsText.text = mainClass.getTime()
+//        print(mainClass.getTime())
+    }
+
     Component.onCompleted: {
-        TimerGeneral.timerGeneral_1SecSignal.connect(slotTimer1Sec)
+//        TimerGeneral.timerGeneral_1SecSignal.connect(slotTimer1Sec)
+
+        mainClass.onGetTime.connect(getTimeFromC)
+        mainClass.onGetDate.connect(getDateFromC)
+//        mainClass.onNewHitCopter.connect(addHitEntityCopter)
+
     }
 
 
@@ -346,6 +362,8 @@ ApplicationWindow{
             }
         }
 
+        property var textTimeq: mainClass.getTime()
+
         Rectangle{
             id: startWindowDate
             anchors.right: parent.right
@@ -360,7 +378,7 @@ ApplicationWindow{
                 anchors.horizontalCenter: startWindowDate.horizontalCenter
                 width: 180
                 height: 35
-                //text: timerGeneral.textDate
+//                text: startWindowTime.textTimeq
                 font.pixelSize: 22
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignTop

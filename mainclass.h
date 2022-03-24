@@ -4,7 +4,9 @@
 #include <QObject>
 #include <QDateTime>
 #include <QDebug>
+#include <QTimer>
 #include <QColor>
+#include <QArrayData>
 
 class MainClass : public QObject
 {
@@ -15,17 +17,30 @@ private:
 
     const int MAX_COUNT_HIT = 5;
 
-    QVector<QVector<QTime>> tableHitsTime;
+    bool isCalcXRow = false;
+
+    QVector<QVector<QVector<QTime>>> tableHitsTime;
 
 public:
     explicit MainClass(QObject *parent = nullptr);
 
     int countTargets;
+    QTimer *timer;
 
 signals:
-    void onNewHitCopter(int zone, QColor newColor);
+    void onNewHitCopterUpdateColor(int zone, QColor newColor);
+    void onNewHitCopter(int target, int zone);
+
+
+    void onGetTime();
+    void onGetDate();
+
+    void onCalcXRow();
+
 
 public slots:
+    void emitSignalToQml();
+
     int getCountTargets();
 
     void setCountTargets(int value);
@@ -36,12 +51,16 @@ public slots:
 
     int getRandom(int min, int max);
 
-    void newHit(int zone);
+    void startTimerGeneral();
+    void stopTimerGeneral();
+
+    void newHit(int zone, int target);
 
     void setStartColor(QColor color);
 
     QColor getNextColorForZone(int currentCountHit);
 
+    void setIsCalcXRow(bool isCalc);
 };
 
 #endif // MAINCLASS_H

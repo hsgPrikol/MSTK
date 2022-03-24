@@ -179,6 +179,7 @@ Window {
 
                 startWindow.show()
                 window.hide()
+                mainClass.startTimerGeneral()
 
                 //                var placeMent
 
