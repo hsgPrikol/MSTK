@@ -75,7 +75,7 @@ Rectangle {
     function addHitEntityCopter(zone, newColor)
     {
 
-        //        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
+//        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
 
         console.log(newColor)
 
@@ -1104,6 +1104,11 @@ Rectangle {
                 mainClass.newHit(5, i)
             }
 
+            for (var i = 0; i < mainClass.getCountTargets(); i++)
+            {
+                mainClass.newHit(5, i)
+            }
+
             event.accepted = true;
         }
 
@@ -1229,7 +1234,7 @@ Rectangle {
             mainClass.setStartColor(phongMaterial_F.ambient)
             mainClass.onNewHitCopterUpdateColor.connect(addHitEntityCopter)
 
-            //            console.log("connect!!!!!!!!!!!!!!!!!")
+//            console.log("connect!!!!!!!!!!!!!!!!!")
         }
     }
 
