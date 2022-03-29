@@ -59,5 +59,10 @@
         <file>model/T.obj</file>
         <file>model/TL.obj</file>
         <file>model/TP.obj</file>
+        <file>model/SLF+.obj</file>
+        <file>model/SLT+.obj</file>
+        <file>model/SPF+.obj</file>
+        <file>model/SPT+.obj</file>
+        <file>startWindow/ResultWindow.qml</file>
     </qresource>
 </RCC>

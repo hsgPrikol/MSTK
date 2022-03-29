@@ -19,6 +19,8 @@ Window {
         mainClass.getDate()
         mainClass.getTime()
 
+
+
     }
 
     //    Rectangle {

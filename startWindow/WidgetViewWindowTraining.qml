@@ -17,51 +17,51 @@ Rectangle {
     color: "transparent"
     width: 500
     height: 500
-//    visible: false
+    //    visible: false
     signal signalView3dExit
 
 
 
 
-//    MouseArea {
-//        anchors.fill: parent
-//        //acceptedButtons: Qt.LeftButton | Qt.RightButton
-//        //hoverEnabled: true
-//        //enabled: true
+    //    MouseArea {
+    //        anchors.fill: parent
+    //        //acceptedButtons: Qt.LeftButton | Qt.RightButton
+    //        //hoverEnabled: true
+    //        //enabled: true
 
-//        onMouseXChanged: {
-//            print("moveX")
-//        }
+    //        onMouseXChanged: {
+    //            print("moveX")
+    //        }
 
-//        onMouseYChanged: {
-//            print("moveY")
-//        }
+    //        onMouseYChanged: {
+    //            print("moveY")
+    //        }
 
-//        onClicked: {
-//                     if (mouse.button == Qt.RightButton)
-//                         print("right")
-//                         //parent.color = 'blue';
-//                     else
-//                         //parent.color = 'red';
-//                         print("left")
+    //        onClicked: {
+    //                     if (mouse.button == Qt.RightButton)
+    //                         print("right")
+    //                         //parent.color = 'blue';
+    //                     else
+    //                         //parent.color = 'red';
+    //                         print("left")
 
-//        }
+    //        }
 
-//    }
+    //    }
 
-//    ObjectPicker {
+    //    ObjectPicker {
 
-//        id: baseCuboidPicker
-//            hoverEnabled: true
-//            dragEnabled: true
-//            enabled: true
+    //        id: baseCuboidPicker
+    //            hoverEnabled: true
+    //            dragEnabled: true
+    //            enabled: true
 
-//        onClicked: {
+    //        onClicked: {
 
-//                         parent.color = 'red';
+    //                         parent.color = 'red';
 
-//        }
-//    }
+    //        }
+    //    }
 
 
     property int rotationXEntityCopter: 135
@@ -75,7 +75,7 @@ Rectangle {
     function addHitEntityCopter(zone, newColor)
     {
 
-//        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
+        //        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
 
         console.log(newColor)
 
@@ -84,85 +84,85 @@ Rectangle {
 
         case 0:
         {
-           phongMaterial_C.ambient = newColor
-           break
+            phongMaterial_C.ambient = newColor
+            break
         }
 
         case 1:
         {
-           phongMaterial_F.ambient = newColor
-           break
+            phongMaterial_F.ambient = newColor
+            break
         }
 
         case 2:
         {
-           phongMaterial_FL.ambient = newColor
-           break
+            phongMaterial_FL.ambient = newColor
+            break
         }
 
         case 3:
         {
-           phongMaterial_FP.ambient = newColor
-           break
+            phongMaterial_FP.ambient = newColor
+            break
         }
 
         case 4:
         {
-           phongMaterial_LB.ambient = newColor
-           break
+            phongMaterial_LB.ambient = newColor
+            break
         }
 
         case 5:
         {
-           phongMaterial_PB.ambient = newColor
-           break
+            phongMaterial_PB.ambient = newColor
+            break
         }
 
         case 6:
         {
-           phongMaterial_SLF.ambient = newColor
-           break
+            phongMaterial_SLF.ambient = newColor
+            break
         }
 
         case 7:
         {
-           phongMaterial_SLT.ambient = newColor
-           break
+            phongMaterial_SLT.ambient = newColor
+            break
         }
 
         case 8:
         {
-           phongMaterial_SPF.ambient = newColor
-           break
+            phongMaterial_SPF.ambient = newColor
+            break
         }
 
         case 9:
         {
-           phongMaterial_SPT.ambient = newColor
-           break
+            phongMaterial_SPT.ambient = newColor
+            break
         }
 
         case 10:
         {
-           phongMaterial_T.ambient = newColor
-           break
+            phongMaterial_T.ambient = newColor
+            break
         }
 
         case 11:
         {
-           phongMaterial_TL.ambient = newColor
-           break
+            phongMaterial_TL.ambient = newColor
+            break
         }
 
         case 12:
         {
-           phongMaterial_TP.ambient = newColor
-           break
+            phongMaterial_TP.ambient = newColor
+            break
         }
 
         }
 
-//
+        //
     }
 
 
@@ -176,18 +176,18 @@ Rectangle {
 
 
 
-//        ObjectPicker {
-//            id: objectPicker
-//            hoverEnabled: true
-//            dragEnabled: true
-//            enabled: true
+        //        ObjectPicker {
+        //            id: objectPicker
+        //            hoverEnabled: true
+        //            dragEnabled: true
+        //            enabled: true
 
-//            onPressed: {
-////                rotationAnimation.running = !rotationAnimation.running
-//            }
+        //            onPressed: {
+        ////                rotationAnimation.running = !rotationAnimation.running
+        //            }
 
 
-//        }
+        //        }
 
 
         Entity {
@@ -203,12 +203,12 @@ Rectangle {
                 viewCenter: Qt.vector3d(0.0, 0.0, 0.0)
             }
 
-//            FirstPersonCameraController {
-//                camera: camera
-//                linearSpeed: 1000.0
-//                acceleration: 0.1
-//                deceleration: 1.0
-//            }
+            //            FirstPersonCameraController {
+            //                camera: camera
+            //                linearSpeed: 1000.0
+            //                acceleration: 0.1
+            //                deceleration: 1.0
+            //            }
 
             //FirstPersonCameraController{}
 
@@ -228,37 +228,37 @@ Rectangle {
                     clearColor: "transparent"
                 }
 
-//                renderPolicy: RenderSettings.Always
+                //                renderPolicy: RenderSettings.Always
             }
 
             InputSettings {
 
             }
 
-//            PointLight {
-//                id: mainLight
-//                color: "red"
-//                intensity: 0.5
-//                enabled: true
+            //            PointLight {
+            //                id: mainLight
+            //                color: "red"
+            //                intensity: 0.5
+            //                enabled: true
 
 
-//                Transform {
-//                    id: positionMainLight
-//                    translation: Qt.vector3d(0, 0, 0)
-//                    rotationX: 0
-//                    rotationY: 0
-//                    rotationZ: 0
-//                }
-//            }
+            //                Transform {
+            //                    id: positionMainLight
+            //                    translation: Qt.vector3d(0, 0, 0)
+            //                    rotationX: 0
+            //                    rotationY: 0
+            //                    rotationZ: 0
+            //                }
+            //            }
 
-//            DirectionalLight {
-//                id: mainLight
-//                color: "red"
-//                worldDirection: Qt.vector3d(1, -1, -1)
-//        //color:  "#afafff"
-//        //worldDirection: Qt.vector3d(0, 0, 0)
+            //            DirectionalLight {
+            //                id: mainLight
+            //                color: "red"
+            //                worldDirection: Qt.vector3d(1, -1, -1)
+            //        //color:  "#afafff"
+            //        //worldDirection: Qt.vector3d(0, 0, 0)
 
-//            }
+            //            }
 
 
 
@@ -277,22 +277,22 @@ Rectangle {
                     worldDirection: Qt.vector3d(1, 1, 1)
                 }
 
-//                PointLight {
-//                    id: pointLight
-//                    color: "red"
-//                }
+                //                PointLight {
+                //                    id: pointLight
+                //                    color: "red"
+                //                }
 
-//                SpotLight {
-//                    id: spotLight
-//                    color: "red"
-//                    localDirection: Qt.vector3d(0, -1, 0)
-//                    intensity: 1
-//                }
+                //                SpotLight {
+                //                    id: spotLight
+                //                    color: "red"
+                //                    localDirection: Qt.vector3d(0, -1, 0)
+                //                    intensity: 1
+                //                }
 
-//                Transform {
-//                    id: transformMainLight
-//                    translation: Qt.vector3d(0, 1000, 0)
-//                }
+                //                Transform {
+                //                    id: transformMainLight
+                //                    translation: Qt.vector3d(0, 1000, 0)
+                //                }
 
 
 
@@ -306,42 +306,42 @@ Rectangle {
 
 
 
-//            Entity {
-//                PhongMaterial {
-//                    id: phongMaterial
-//                    ambient: Qt.rgba(0.3, 0.3, 0.3, 1.0)
-//                    diffuse: Qt.rgba(1, 1, 1, 1)
-//                }
+            //            Entity {
+            //                PhongMaterial {
+            //                    id: phongMaterial
+            //                    ambient: Qt.rgba(0.3, 0.3, 0.3, 1.0)
+            //                    diffuse: Qt.rgba(1, 1, 1, 1)
+            //                }
 
-//                SphereMesh {
-//                    id: sphereMesh
-//                    radius: 6
-//                }
+            //                SphereMesh {
+            //                    id: sphereMesh
+            //                    radius: 6
+            //                }
 
-//                Transform {
-//                    id: sphereTransform
-//                    property real myParam: 0
-//                    matrix: {
-//                        var mat = Qt.matrix4x4();
-//                        mat.rotate(myParam, Qt.vector3d(0, 1, 0));
-//                        mat.translate(Qt.vector3d(24, 0, 0));
-//                        return mat;
-//                    }
-//                }
+            //                Transform {
+            //                    id: sphereTransform
+            //                    property real myParam: 0
+            //                    matrix: {
+            //                        var mat = Qt.matrix4x4();
+            //                        mat.rotate(myParam, Qt.vector3d(0, 1, 0));
+            //                        mat.translate(Qt.vector3d(24, 0, 0));
+            //                        return mat;
+            //                    }
+            //                }
 
-//                components: [sphereMesh, phongMaterial, sphereTransform]
+            //                components: [sphereMesh, phongMaterial, sphereTransform]
 
 
-//                NumberAnimation {
-//                    target: sphereTransform
-//                    property: "myParam"
-//                    duration: 10000
-//                    from: 0
-//                    to: 360
-//                    loops: Animation.Infinite
-//                    running: true
-//                }
-//            }
+            //                NumberAnimation {
+            //                    target: sphereTransform
+            //                    property: "myParam"
+            //                    duration: 10000
+            //                    from: 0
+            //                    to: 360
+            //                    loops: Animation.Infinite
+            //                    running: true
+            //                }
+            //            }
 
 
 
@@ -537,7 +537,7 @@ Rectangle {
 
                 Mesh {
                     id: slf_obj
-                    source: "qrc:/model/SLF.obj"
+                    source: "qrc:/model/SLF+.obj"
                 }
 
                 Transform {
@@ -562,7 +562,7 @@ Rectangle {
 
                 Mesh {
                     id: slt_obj
-                    source: "qrc:/model/SLT.obj"
+                    source: "qrc:/model/SLT+.obj"
                 }
 
                 Transform {
@@ -587,7 +587,7 @@ Rectangle {
 
                 Mesh {
                     id: spf_obj
-                    source: "qrc:/model/SPF.obj"
+                    source: "qrc:/model/SPF+.obj"
                 }
 
                 Transform {
@@ -612,7 +612,7 @@ Rectangle {
 
                 Mesh {
                     id: spt_obj
-                    source: "qrc:/model/SPT.obj"
+                    source: "qrc:/model/SPT+.obj"
                 }
 
                 Transform {
@@ -702,137 +702,137 @@ Rectangle {
 
                 components: [tp_obj, phongMaterial_TP, sphereMeshTransform_TP]
             }
-//            Entity {
-//                id: entityCopter
+            //            Entity {
+            //                id: entityCopter
 
-//                PhongMaterial {
-//                    id: phongMaterial
-//                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
-//                }
-
-
-
-//                Mesh {
-//                    id: c_obj
-//                    source: "qrc:/model/C.obj"
-//                }
-
-//                Mesh {
-//                    id: f_obj
-//                    source: "qrc:/model/F.obj"
-//                }
-
-//                Mesh {
-//                    id: fl_obj
-//                    source: "qrc:/model/FL.obj"
-//                }
-
-//                Mesh {
-//                    id: fp_obj
-//                    source: "qrc:/model/FP.obj"
-//                }
-
-//                Mesh {
-//                    id: lb_obj
-//                    source: "qrc:/model/LB.obj"
-//                }
-
-//                Mesh {
-//                    id: nojki_obj
-//                    source: "qrc:/model/Nojki.obj"
-//                }
-
-//                Mesh {
-//                    id: pb_obj
-//                    source: "qrc:/model/PB.obj"
-//                }
-
-//                Mesh {
-//                    id: slf_obj
-//                    source: "qrc:/model/SLF.obj"
-//                }
-
-//                Mesh {
-//                    id: slt_obj
-//                    source: "qrc:/model/SLT.obj"
-//                }
-
-//                Mesh {
-//                    id: spf_obj
-//                    source: "qrc:/model/SPF.obj"
-//                }
-
-//                Mesh {
-//                    id: spt_obj
-//                    source: "qrc:/model/SPT.obj"
-//                }
-
-//                Mesh {
-//                    id: t_obj
-//                    source: "qrc:/model/T.obj"
-//                }
-
-//                Mesh {
-//                    id: tl_obj
-//                    source: "qrc:/model/TL.obj"
-//                }
-
-//                Mesh {
-//                    id: tp_obj
-//                    source: "qrc:/model/TP.obj"
-//                }
+            //                PhongMaterial {
+            //                    id: phongMaterial
+            //                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+            //                }
 
 
-//                Transform {
-//                    id: sphereMeshTransform
-//                    rotationX: 0
-//                    rotationY: 0
-//                    rotationZ: 0
-//                    translation: Qt.vector3d(0, 0, 0)
-//                }
 
-//                RotationAnimation {
-//                    id: rotationAnimation
-//                    target: sphereMeshTransform
-//                    properties: "rotationY"
-//                    loops: Animation.Infinite
-//                    from: 0
-//                    to: 360
-//                    duration: 10000
-//                    running: false
-//                }
+            //                Mesh {
+            //                    id: c_obj
+            //                    source: "qrc:/model/C.obj"
+            //                }
 
-//                components: [c_obj, /*f_obj,*/ fl_obj, /*fp_obj, lb_obj, nojki_obj, pb_obj, slf_obj, slt_obj, spf_obj, spt_obj, t_obj, tl_obj, tp_obj,*/ phongMaterial, sphereMeshTransform, rotationAnimation]
-//            }
+            //                Mesh {
+            //                    id: f_obj
+            //                    source: "qrc:/model/F.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: fl_obj
+            //                    source: "qrc:/model/FL.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: fp_obj
+            //                    source: "qrc:/model/FP.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: lb_obj
+            //                    source: "qrc:/model/LB.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: nojki_obj
+            //                    source: "qrc:/model/Nojki.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: pb_obj
+            //                    source: "qrc:/model/PB.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: slf_obj
+            //                    source: "qrc:/model/SLF.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: slt_obj
+            //                    source: "qrc:/model/SLT.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: spf_obj
+            //                    source: "qrc:/model/SPF.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: spt_obj
+            //                    source: "qrc:/model/SPT.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: t_obj
+            //                    source: "qrc:/model/T.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: tl_obj
+            //                    source: "qrc:/model/TL.obj"
+            //                }
+
+            //                Mesh {
+            //                    id: tp_obj
+            //                    source: "qrc:/model/TP.obj"
+            //                }
+
+
+            //                Transform {
+            //                    id: sphereMeshTransform
+            //                    rotationX: 0
+            //                    rotationY: 0
+            //                    rotationZ: 0
+            //                    translation: Qt.vector3d(0, 0, 0)
+            //                }
+
+            //                RotationAnimation {
+            //                    id: rotationAnimation
+            //                    target: sphereMeshTransform
+            //                    properties: "rotationY"
+            //                    loops: Animation.Infinite
+            //                    from: 0
+            //                    to: 360
+            //                    duration: 10000
+            //                    running: false
+            //                }
+
+            //                components: [c_obj, /*f_obj,*/ fl_obj, /*fp_obj, lb_obj, nojki_obj, pb_obj, slf_obj, slt_obj, spf_obj, spt_obj, t_obj, tl_obj, tp_obj,*/ phongMaterial, sphereMeshTransform, rotationAnimation]
+            //            }
 
             //components: [mouse]
 
-//            Entity {
-//                PlaneMesh {
-//                    id: qw1
-//                    width: 10000
-//                    height: 10000
+            //            Entity {
+            //                PlaneMesh {
+            //                    id: qw1
+            //                    width: 10000
+            //                    height: 10000
 
-//                }
+            //                }
 
-//                Transform {
-//                    id: qw3
-//                    translation: Qt.vector3d(0, -50, 0)
-//                }
+            //                Transform {
+            //                    id: qw3
+            //                    translation: Qt.vector3d(0, -50, 0)
+            //                }
 
-//                PhongMaterial {
-//                    id: qw2
-//                    ambient: Qt.rgba(0.7, 0.7, 0.7, 1.0)
-//                    //ambient: "red"
-//                    diffuse: Qt.rgba(1, 1, 1, 1)
-//                    //specular: Qt.rgba(1, 1, 1, 1)
-//                    //shininess: 0.0
-//                }
+            //                PhongMaterial {
+            //                    id: qw2
+            //                    ambient: Qt.rgba(0.7, 0.7, 0.7, 1.0)
+            //                    //ambient: "red"
+            //                    diffuse: Qt.rgba(1, 1, 1, 1)
+            //                    //specular: Qt.rgba(1, 1, 1, 1)
+            //                    //shininess: 0.0
+            //                }
 
 
-//                components: [qw1, qw2, qw3]
+            //                components: [qw1, qw2, qw3]
 
-//            }
+            //            }
 
         }
 
@@ -921,9 +921,9 @@ Rectangle {
         }
     }
 
-//    SequentialAnimation {
-//        id: sequentialAnimation
-//        loops: 1
+    //    SequentialAnimation {
+    //        id: sequentialAnimation
+    //        loops: 1
 
 
 
@@ -932,83 +932,83 @@ Rectangle {
 
 
 
-////        NumberAnimation {
-////            target: camera
-////            property: "viewCenter.y"
-////            duration: 500
-////            from: 0
-////            to: 500
-//////            easing.type: Easing.OutCubic
-////        }
+    ////        NumberAnimation {
+    ////            target: camera
+    ////            property: "viewCenter.y"
+    ////            duration: 500
+    ////            from: 0
+    ////            to: 500
+    //////            easing.type: Easing.OutCubic
+    ////        }
 
-////        NumberAnimation {
-////            target: camera
-////            property: "viewCenter.y"
-////            duration: 500
-////            from: 500
-////            to: 0
-//////            easing.type: Easing.InCubic
-////        }
+    ////        NumberAnimation {
+    ////            target: camera
+    ////            property: "viewCenter.y"
+    ////            duration: 500
+    ////            from: 500
+    ////            to: 0
+    //////            easing.type: Easing.InCubic
+    ////        }
 
-//        //running: false
-
-
-////        onAnimationsChanged: {
-////            print("ch")
-////        }
-
-//        onStarted: {
-//            print("onStartedSequentialAnimation")
-//            orbitCameraController.enabled = false
-//        }
-
-//        onStopped: {
-//            print("onStoppedSequentialAnimation")
-//            orbitCameraController.enabled = true
-//        }
+    //        //running: false
 
 
+    ////        onAnimationsChanged: {
+    ////            print("ch")
+    ////        }
 
-////        onFinished: {
-////            orbitCameraController.enabled = true
-////        }
-//    }
+    //        onStarted: {
+    //            print("onStartedSequentialAnimation")
+    //            orbitCameraController.enabled = false
+    //        }
 
-//    Vector3dAnimation {
-//        id: vector3dAnimation_1
-//        from: Qt.vector3d(0, 0, 1000)
-//        to: Qt.vector3d(0, 0, 0)
-//        duration: 1000
-//        property: "translation"
-//        target: sphereMeshTransform
-//        //loops: Animation.Infinite
-//        running: true
-//    }
+    //        onStopped: {
+    //            print("onStoppedSequentialAnimation")
+    //            orbitCameraController.enabled = true
+    //        }
 
-//    Vector3dAnimation {
-//        id: vector3dAnimation_2
-//        from: Qt.vector3d(0, 0, 0)
-//        to: Qt.vector3d(0, 0, 1000)
-//        duration: 1000
-//        property: "translation"
-//        target: sphereMeshTransform
-//        //loops: Animation.Infinite
-//        running: true
-//    }
 
-//    NumberAnimation {
-//        id: numberAnimationForLight
-//        target: spotLight
-//        property: "linearAttenuation"
-//        duration: 5000
-//        from: 0.0
-//        to: 1.0
-//        loops: 1
 
-//        onStarted: {
-//            console.log("new loop")
-//        }
-//    }
+    ////        onFinished: {
+    ////            orbitCameraController.enabled = true
+    ////        }
+    //    }
+
+    //    Vector3dAnimation {
+    //        id: vector3dAnimation_1
+    //        from: Qt.vector3d(0, 0, 1000)
+    //        to: Qt.vector3d(0, 0, 0)
+    //        duration: 1000
+    //        property: "translation"
+    //        target: sphereMeshTransform
+    //        //loops: Animation.Infinite
+    //        running: true
+    //    }
+
+    //    Vector3dAnimation {
+    //        id: vector3dAnimation_2
+    //        from: Qt.vector3d(0, 0, 0)
+    //        to: Qt.vector3d(0, 0, 1000)
+    //        duration: 1000
+    //        property: "translation"
+    //        target: sphereMeshTransform
+    //        //loops: Animation.Infinite
+    //        running: true
+    //    }
+
+    //    NumberAnimation {
+    //        id: numberAnimationForLight
+    //        target: spotLight
+    //        property: "linearAttenuation"
+    //        duration: 5000
+    //        from: 0.0
+    //        to: 1.0
+    //        loops: 1
+
+    //        onStarted: {
+    //            console.log("new loop")
+    //        }
+    //    }
 
     ColorAnimation {
         id: tetetet
@@ -1024,6 +1024,17 @@ Rectangle {
     }
 
     Keys.onPressed: {
+
+
+        if (event.key === Qt.Key_0)
+        {
+            console.log("0")
+
+            mainClass.newHit(0, 0)
+
+            event.accepted = true;
+        }
+
         if (event.key === Qt.Key_Q)
         {
             console.log("Q")
@@ -1195,17 +1206,17 @@ Rectangle {
 
             //entityCopter.components.
 
-//            print("work")
+            //            print("work")
             //vector3dAnimation_1.running = !(vector3dAnimation_1.running)
 
             //parallelAnimationOut.running = true
             //print(parallelAnimationOut.alwaysRunToEnd)
 
-//            console.log("constantAttenuation   " + spotLight.constantAttenuation)
-//            console.log("cutOffAngle   " + spotLight.cutOffAngle)
-//            console.log("linearAttenuation   " + spotLight.linearAttenuation)
-//            console.log("localDirection   " + spotLight.localDirection)
-//            console.log("quadraticAttenuation   " + spotLight.quadraticAttenuation)
+            //            console.log("constantAttenuation   " + spotLight.constantAttenuation)
+            //            console.log("cutOffAngle   " + spotLight.cutOffAngle)
+            //            console.log("linearAttenuation   " + spotLight.linearAttenuation)
+            //            console.log("localDirection   " + spotLight.localDirection)
+            //            console.log("quadraticAttenuation   " + spotLight.quadraticAttenuation)
 
             //camera.viewCenter.y = camera.viewCenter.y + 100
 
@@ -1218,7 +1229,7 @@ Rectangle {
             mainClass.setStartColor(phongMaterial_F.ambient)
             mainClass.onNewHitCopterUpdateColor.connect(addHitEntityCopter)
 
-//            console.log("connect!!!!!!!!!!!!!!!!!")
+            //            console.log("connect!!!!!!!!!!!!!!!!!")
         }
     }
 
