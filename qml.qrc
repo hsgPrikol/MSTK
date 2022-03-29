@@ -64,5 +64,24 @@
         <file>model/SPF+.obj</file>
         <file>model/SPT+.obj</file>
         <file>startWindow/ResultWindow.qml</file>
+        <file>Rezultaty/Close_spravku.tif</file>
+        <file>Rezultaty/Kursor_vremeni.tif</file>
+        <file>Rezultaty/Line_centr.tif</file>
+        <file>Rezultaty/Line_spravki.tif</file>
+        <file>Rezultaty/Okno_full_infy.tif</file>
+        <file>Rezultaty/Okno_misheni.tif</file>
+        <file>Rezultaty/Pause.tif</file>
+        <file>Rezultaty/Plashka_timeline_aktiv.tif</file>
+        <file>Rezultaty/Plashka_timeline_ne_aktiv.tif</file>
+        <file>Rezultaty/Play.tif</file>
+        <file>Rezultaty/Podcherkivanie_okno_full.tif</file>
+        <file>Rezultaty/Podcherkivanie_okno_mishen.tif</file>
+        <file>Rezultaty/Popadanie_aktiv.tif</file>
+        <file>Rezultaty/Popadanie_ne_aktiv.tif</file>
+        <file>Rezultaty/Spravka.tif</file>
+        <file>Rezultaty/TimeLine_aktiv.tif</file>
+        <file>Rezultaty/TimeLine_ne_aktiv.tif</file>
+        <file>Rezultaty/Verh.tif</file>
+        <file>Rezultaty/Vyhod.tif</file>
     </qresource>
 </RCC>

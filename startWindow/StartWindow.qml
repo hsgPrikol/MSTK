@@ -24,6 +24,15 @@ ApplicationWindow{
         }
     }
 
+    ResultWindow {
+        id: resultWindow
+
+        onSignalExitResultWindow: {
+            resultWindow.show()
+            startWindow.hide()
+        }
+    }
+
     TrainingParameters{
         id: trainingParameters
 
@@ -170,7 +179,7 @@ ApplicationWindow{
             hoverEnabled: true
 
             onClicked: {
-
+                resultWindow.signalExitResultWindow()
             }
         }
 
