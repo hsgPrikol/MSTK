@@ -31,8 +31,6 @@ public slots:
     {
         std::cout << 5000 << std::endl;
     }
-
-
 };
 
 #endif // CLASSFORTEST_H

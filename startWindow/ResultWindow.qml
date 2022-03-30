@@ -536,22 +536,22 @@ ApplicationWindow {
                         color: "white"
                     }
                 }
-//                GridLabel{
-//                    Layout.column: 4
-//                    Layout.row: 1
-//                    Layout.columnSpan: 3
-//                    Layout.rowSpan: 1
+                //                GridLabel{
+                //                    Layout.column: 4
+                //                    Layout.row: 1
+                //                    Layout.columnSpan: 3
+                //                    Layout.rowSpan: 1
 
-//                    Text {
-//                        anchors.centerIn: parent
-//                        text: "Самая невзрачная мишень"
-//                        font.pixelSize: 14
-//                        //                        font.overline: true
-//                        verticalAlignment: Text.AlignVCenter
-//                        horizontalAlignment: Text.AlignHCenter
-//                        color: "white"
-//                    }
-//                }
+                //                    Text {
+                //                        anchors.centerIn: parent
+                //                        text: "Самая невзрачная мишень"
+                //                        font.pixelSize: 14
+                //                        //                        font.overline: true
+                //                        verticalAlignment: Text.AlignVCenter
+                //                        horizontalAlignment: Text.AlignHCenter
+                //                        color: "white"
+                //                    }
+                //                }
                 GridLabel{
                     Layout.column: 4
                     Layout.row: 2
@@ -616,41 +616,41 @@ ApplicationWindow {
                         color: "white"
                     }
                 }
-//                GridLabel{
-//                    Layout.column: 4
-//                    Layout.row: 6
-//                    Layout.columnSpan: 3
-//                    Layout.rowSpan: 1
+                //                GridLabel{
+                //                    Layout.column: 4
+                //                    Layout.row: 6
+                //                    Layout.columnSpan: 3
+                //                    Layout.rowSpan: 1
 
-//                    Text {
-//                        anchors.centerIn: parent
-//                        text: "Самая невзрачная мишень"
-//                        font.pixelSize: 14
-//                        //                        font.overline: true
-//                        verticalAlignment: Text.AlignVCenter
-//                        horizontalAlignment: Text.AlignHCenter
-//                        color: "white"
-//                    }
-//                }
+                //                    Text {
+                //                        anchors.centerIn: parent
+                //                        text: "Самая невзрачная мишень"
+                //                        font.pixelSize: 14
+                //                        //                        font.overline: true
+                //                        verticalAlignment: Text.AlignVCenter
+                //                        horizontalAlignment: Text.AlignHCenter
+                //                        color: "white"
+                //                    }
+                //                }
 
 
                 //4~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//                GridLabel{
-//                    Layout.column: 7
-//                    Layout.row: 1
-//                    Layout.columnSpan: 1
-//                    Layout.rowSpan: 1
+                //                GridLabel{
+                //                    Layout.column: 7
+                //                    Layout.row: 1
+                //                    Layout.columnSpan: 1
+                //                    Layout.rowSpan: 1
 
-//                    Text {
-//                        anchors.centerIn: parent
-//                        text: "Самая невзрачная мишень"
-//                        font.pixelSize: 14
-//                        //                        font.overline: true
-//                        verticalAlignment: Text.AlignVCenter
-//                        horizontalAlignment: Text.AlignHCenter
-//                        color: "white"
-//                    }
-//                }
+                //                    Text {
+                //                        anchors.centerIn: parent
+                //                        text: "Самая невзрачная мишень"
+                //                        font.pixelSize: 14
+                //                        //                        font.overline: true
+                //                        verticalAlignment: Text.AlignVCenter
+                //                        horizontalAlignment: Text.AlignHCenter
+                //                        color: "white"
+                //                    }
+                //                }
                 GridLabel{
                     Layout.column: 7
                     Layout.row: 2
@@ -715,33 +715,133 @@ ApplicationWindow {
                         color: "white"
                     }
                 }
-//                GridLabel{
-//                    Layout.column: 7
-//                    Layout.row: 6
-//                    Layout.columnSpan: 1
-//                    Layout.rowSpan: 1
+                //                GridLabel{
+                //                    Layout.column: 7
+                //                    Layout.row: 6
+                //                    Layout.columnSpan: 1
+                //                    Layout.rowSpan: 1
 
-//                    Text {
-//                        anchors.centerIn: parent
-//                        text: "Самая невзрачная мишень"
-//                        font.pixelSize: 14
-//                        //                        font.overline: true
-//                        verticalAlignment: Text.AlignVCenter
-//                        horizontalAlignment: Text.AlignHCenter
-//                        color: "white"
-//                    }
-//                }
+                //                    Text {
+                //                        anchors.centerIn: parent
+                //                        text: "Самая невзрачная мишень"
+                //                        font.pixelSize: 14
+                //                        //                        font.overline: true
+                //                        verticalAlignment: Text.AlignVCenter
+                //                        horizontalAlignment: Text.AlignHCenter
+                //                        color: "white"
+                //                    }
+                //                }
             }
         }
 
         GridRectangle{
-            id: rect6
+            id: scaleAndSpeed
             Layout.column: 1
             Layout.row: 13
             Layout.columnSpan: 15
             Layout.rowSpan: 2
             Layout.rightMargin: 20
             Layout.leftMargin: 20
+
+            GridLayout{
+                id: gridScaleAndSpeed
+
+                anchors.fill: parent
+                columns: 6
+                rows: 4
+
+                component GridScale: Rectangle {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.preferredWidth: Layout.columnSpan
+                    Layout.preferredHeight: Layout.rowSpan
+                    color: "#626262"
+                    border.color: Qt.darker(color)
+                    border.width: 1
+                    //Layout.margins: 20
+                }
+
+                GridScale {
+                    id: scaleLabel
+                    Layout.column: 0
+                    Layout.row: 0
+                    Layout.columnSpan: 1
+                    Layout.rowSpan: 2
+
+                    Text {
+                        text: "Масштаб времени"
+                        anchors.verticalCenter: parent.verticalCenter
+                        font.pixelSize: 14
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        color: "white"
+                    }
+                }
+
+                GridScale {
+                    id: scaleSlider
+                    Layout.column: 0
+                    Layout.row: 2
+                    Layout.columnSpan: 1
+                    Layout.rowSpan: 2
+
+                    Slider{
+                        id: slider
+                        anchors.fill: parent
+                        orientation: Qt.Horizontal
+                        value: 30
+                        from: 30
+                        to: 120
+                        stepSize: 15
+//                        scale: 0.8
+
+                        handle: Rectangle {
+                            x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
+                            y: slider.topPadding + slider.availableHeight / 2 - height / 2
+                            implicitWidth: 16
+                            implicitHeight: 16
+                            radius: 8
+                            color: control.pressed ? "#f0f0f0" : "#f6f6f6"
+                            border.color: "#bdbebf"
+                        }
+
+                        onValueChanged: {
+                            //                            widgetShootingTargetAll.currentScaleTime = value
+                            //                            widgetShooting.currentScaleTime = value
+                        }
+                    }
+                }
+
+                GridScale {
+                    Layout.column: 1
+                    Layout.row: 2
+                    Layout.columnSpan: 1
+                    Layout.rowSpan: 2
+                }
+
+
+                GridScale {
+                    Layout.column: 2
+                    Layout.row: 1
+                    Layout.columnSpan: 2
+                    Layout.rowSpan: 2
+                }
+
+                GridScale {
+                    Layout.column: 4
+                    Layout.row: 0
+                    Layout.columnSpan: 2
+                    Layout.rowSpan: 2
+                }
+                GridScale {
+                    Layout.column: 4
+                    Layout.row: 2
+                    Layout.columnSpan: 2
+                    Layout.rowSpan: 2
+                }
+            }
+
+
             //            Layout.margins: 20
             //            color: "gray"
         }
