@@ -8,7 +8,7 @@ import QtQuick.Dialogs 1.3
 Rectangle {
     id: window
     width: 1180
-    height: 40
+    height: heightCustom
     border.width: 1
     border.color: "white"
 
@@ -31,6 +31,8 @@ Rectangle {
 
     property var rectGreenCreator
 
+    property int heightCustom: 40
+
     onCurrentScaleTimeChanged: {
         onChangeScaleTime(currentScaleTime)
     }
@@ -42,6 +44,7 @@ Rectangle {
                                             x: window.xRow,
                                             textInRect: textInRect,
                                             currentScaleTime: currentScaleTime,
+                                            dfltHeight: heightCustom,
                                             attribute: target,
                                             timeCreated: mainClass.getDurationTrainingMSec(),
                                             widthParent: scroll.width,
@@ -144,7 +147,7 @@ Rectangle {
 
         Rectangle {
             width: 150
-            height: parent.height
+            height: heightCustom
             color: "#92da18"
 
             Text {
@@ -161,14 +164,14 @@ Rectangle {
         Rectangle {
             id: windowRect
             x: 150
-            height: 40
+            height: heightCustom
             width: 1030
             color: "transparent"
 
             ScrollView {
                 id: scroll
                 anchors.fill: parent
-                height: 40
+                height: heightCustom
                 wheelEnabled: false
                 hoverEnabled: true
                 width: parent.width
@@ -187,7 +190,7 @@ Rectangle {
                     Rectangle {
                         color: "white"
                         x: window.xRow
-                        height: 40
+                        height: heightCustom
                         width: 1
                         radius: 1
 

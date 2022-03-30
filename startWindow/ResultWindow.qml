@@ -15,7 +15,19 @@ ApplicationWindow {
 
     //    flags: Qt.FramelessWindowHint
 
+
     signal signalExitResultWindow
+
+    property int scaleTimeText: 30
+    property int speedTimeText: 1
+
+    property var imageRecord: "qrc:/Rezultaty/Play.tif"
+
+    property bool flagPlayPause: false
+
+    property int fontSize: 20
+
+    property int paddingInfoText: 40
 
     GridLayout{
         id: grid
@@ -33,7 +45,7 @@ ApplicationWindow {
             Layout.preferredHeight: Layout.rowSpan
             color: "#626262"
             border.color: Qt.darker(color)
-            border.width: 1
+            border.width: 0
             //Layout.margins: 20
         }
 
@@ -206,7 +218,8 @@ ApplicationWindow {
                 hoverEnabled: true
 
                 onClicked: {
-                    Qt.quit()
+                    startWindow.show()
+                    resultWindow.hide()
                 }
             }
 
@@ -214,8 +227,8 @@ ApplicationWindow {
                 id: startWindowExitImg
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                width: parent.width
-                height: parent.height
+                width: parent.width - 50
+                height: parent.height - 15
                 source: "qrc:/pictures/Vyhod.tif"
                 //            fillMode: Image.PreserveAspectFit
 
@@ -249,7 +262,6 @@ ApplicationWindow {
                 verticalAlignment: Text.AlignVCenter
                 color: "#ffffff"
                 font.pixelSize: 20
-
             }
         }
 
@@ -286,7 +298,7 @@ ApplicationWindow {
 
             Image {
                 anchors.fill: parent
-                source: "qrc:/Rezultaty/Okno_full_infy.tif"
+                source: "qrc:/Rezultaty/WindowFullInfo.tif"
             }
 
             GridLayout{
@@ -301,7 +313,7 @@ ApplicationWindow {
                     Layout.preferredWidth: Layout.columnSpan
                     Layout.preferredHeight: Layout.rowSpan
                     color: "#00000000"
-                    border.width: 1
+                    border.width: 0
                     border.color: "white"
                     //Layout.margins: 20
                 }
@@ -317,7 +329,7 @@ ApplicationWindow {
                     Text {
                         anchors.centerIn: parent
                         text: "ОБОБЩЕННАЯ ИНФОРМАЦИЯ"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         font.underline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -331,9 +343,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Процент поражения мишеней"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -347,9 +360,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Время первого попадания"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -363,9 +377,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Количество попаданий"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -379,9 +394,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Зона наибольшей плотности попаданий"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -395,9 +411,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Самая поразительная мишень"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -411,9 +428,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Самая невзрачная мишень"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -429,9 +447,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "69%"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -445,9 +463,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
-                        text: "0:12\tМишень 5"
-                        font.pixelSize: 14
+                        anchors.left: parent.left
+                        text: "0:12"
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -461,9 +479,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "228"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -477,9 +495,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "ФП"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -493,9 +511,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "Мишень 2"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -509,9 +527,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "Мишень 1"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -529,7 +547,7 @@ ApplicationWindow {
                     Text {
                         anchors.centerIn: parent
                         text: "ПАРАМЕТРЫ ТРЕНИРОВКИ"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         font.underline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -545,7 +563,7 @@ ApplicationWindow {
                 //                    Text {
                 //                        anchors.centerIn: parent
                 //                        text: "Самая невзрачная мишень"
-                //                        font.pixelSize: 14
+                //                        font.pixelSize: fontSize
                 //                        //                        font.overline: true
                 //                        verticalAlignment: Text.AlignVCenter
                 //                        horizontalAlignment: Text.AlignHCenter
@@ -559,9 +577,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Количество мишеней"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -575,9 +594,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Высота полета мишеней"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -591,9 +611,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Дальность до мишеней от рубежа"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -607,9 +628,10 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        leftPadding: resultWindow.paddingInfoText
                         text: "Количество стрелков"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -625,7 +647,7 @@ ApplicationWindow {
                 //                    Text {
                 //                        anchors.centerIn: parent
                 //                        text: "Самая невзрачная мишень"
-                //                        font.pixelSize: 14
+                //                        font.pixelSize: fontSize
                 //                        //                        font.overline: true
                 //                        verticalAlignment: Text.AlignVCenter
                 //                        horizontalAlignment: Text.AlignHCenter
@@ -644,7 +666,7 @@ ApplicationWindow {
                 //                    Text {
                 //                        anchors.centerIn: parent
                 //                        text: "Самая невзрачная мишень"
-                //                        font.pixelSize: 14
+                //                        font.pixelSize: fontSize
                 //                        //                        font.overline: true
                 //                        verticalAlignment: Text.AlignVCenter
                 //                        horizontalAlignment: Text.AlignHCenter
@@ -658,9 +680,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "255"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -674,9 +696,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "322 м"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -690,9 +712,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "71 м"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -706,9 +728,9 @@ ApplicationWindow {
                     Layout.rowSpan: 1
 
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
                         text: "21"
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         //                        font.overline: true
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -724,7 +746,7 @@ ApplicationWindow {
                 //                    Text {
                 //                        anchors.centerIn: parent
                 //                        text: "Самая невзрачная мишень"
-                //                        font.pixelSize: 14
+                //                        font.pixelSize: fontSize
                 //                        //                        font.overline: true
                 //                        verticalAlignment: Text.AlignVCenter
                 //                        horizontalAlignment: Text.AlignHCenter
@@ -734,6 +756,7 @@ ApplicationWindow {
             }
         }
 
+        //изменение масштаба и скорости воспроизведения
         GridRectangle{
             id: scaleAndSpeed
             Layout.column: 1
@@ -757,9 +780,10 @@ ApplicationWindow {
                     Layout.preferredHeight: Layout.rowSpan
                     color: "#626262"
                     border.color: Qt.darker(color)
-                    border.width: 1
+                    border.width: 0
                     //Layout.margins: 20
                 }
+
 
                 GridScale {
                     id: scaleLabel
@@ -771,7 +795,7 @@ ApplicationWindow {
                     Text {
                         text: "Масштаб времени"
                         anchors.verticalCenter: parent.verticalCenter
-                        font.pixelSize: 14
+                        font.pixelSize: fontSize
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                         color: "white"
@@ -793,7 +817,7 @@ ApplicationWindow {
                         from: 30
                         to: 120
                         stepSize: 15
-                        scale: 0.8
+                        //                        scale: 0.8
 
                         handle: Rectangle {
                             x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
@@ -801,11 +825,12 @@ ApplicationWindow {
                             implicitWidth: 16
                             implicitHeight: 16
                             radius: 8
-                            color: control.pressed ? "#f0f0f0" : "#f6f6f6"
+                            color: slider.pressed ? "#f0f0f0" : "#f6f6f6"
                             border.color: "#bdbebf"
                         }
 
                         onValueChanged: {
+                            scaleTimeText = value
                             //                            widgetShootingTargetAll.currentScaleTime = value
                             //                            widgetShooting.currentScaleTime = value
                         }
@@ -813,40 +838,121 @@ ApplicationWindow {
                 }
 
                 GridScale {
+                    id: scaleTimeSlider
                     Layout.column: 1
                     Layout.row: 2
                     Layout.columnSpan: 1
                     Layout.rowSpan: 2
+
+                    Text {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: scaleTimeText
+                        font.pixelSize: fontSize
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        color: "white"
+                    }
                 }
 
-
                 GridScale {
+                    id: timeRecordTraining
                     Layout.column: 2
                     Layout.row: 1
                     Layout.columnSpan: 2
                     Layout.rowSpan: 2
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "00:21"
+                        font.pixelSize: fontSize
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        color: "white"
+                    }
                 }
 
                 GridScale {
+                    id: speedSliderText
                     Layout.column: 4
                     Layout.row: 0
                     Layout.columnSpan: 2
                     Layout.rowSpan: 2
+
+                    Text {
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        text: "Скорость воспроизведения x " + speedTimeText
+                        font.pixelSize: fontSize
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        color: "white"
+                    }
+
                 }
                 GridScale {
+                    id: speedSlider
+                    Layout.column: 5
+                    Layout.row: 2
+                    Layout.columnSpan: 1
+                    Layout.rowSpan: 2
+
+                    Slider{
+                        id: controlsSpeedSlider
+                        anchors.fill: parent
+                        orientation: Qt.Horizontal
+                        value: 1
+                        from: 1
+                        to: 4
+                        stepSize: 1
+                        //                        scale: 0.8
+
+                        handle: Rectangle {
+                            x: controlsSpeedSlider.leftPadding + controlsSpeedSlider.visualPosition * (controlsSpeedSlider.availableWidth - width)
+                            y: controlsSpeedSlider.topPadding + controlsSpeedSlider.availableHeight / 2 - height / 2
+                            implicitWidth: 16
+                            implicitHeight: 16
+                            radius: 8
+                            color: controlsSpeedSlider.pressed ? "#f0f0f0" : "#f6f6f6"
+                            border.color: "#bdbebf"
+                        }
+
+                        onValueChanged: {
+                            speedTimeText = value
+                            //                            widgetShootingTargetAll.currentScaleTime = value
+                            //                            widgetShooting.currentScaleTime = value
+                        }
+                    }
+                }
+
+                GridScale {
+                    id: buttonStartRecord
                     Layout.column: 4
                     Layout.row: 2
-                    Layout.columnSpan: 2
+                    Layout.columnSpan: 1
                     Layout.rowSpan: 2
+
+                    Image {
+                        id: imgRecord
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        source: "qrc:/Rezultaty/Play.tif"
+                        MouseArea{
+                            anchors.fill: parent
+
+                            onClicked: {
+                                imgRecord.source = flagPlayPause ? "qrc:/Rezultaty/Pause.tif" : "qrc:/Rezultaty/Play.tif"
+                                flagPlayPause = !flagPlayPause
+                                //                                print(flagPlayPause)
+                            }
+                        }
+                    }
                 }
             }
-
-
-            //            Layout.margins: 20
-            //            color: "gray"
         }
+
+        //Список мишеней с общим timeLine
         GridRectangle{
-            id: rect7
+            id: targetsAndGeneralTimeLine
             Layout.column: 1
             Layout.row: 15
             Layout.columnSpan: 15
@@ -854,14 +960,31 @@ ApplicationWindow {
             Layout.rightMargin: 20
             Layout.leftMargin: 20
             Layout.bottomMargin: 5
-            //            Layout.margins: 20
-            //            color: "gray"
-        }
 
+            ScrollView{
+                id: scrollTargets
+                anchors.fill: parent
+                height: parent.height
+                width: parent.width
+                contentWidth: parent.width
+                contentHeight: 8 * (10 + widgetShooting.height)
+                clip: true
+
+                Column{
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    spacing: 10
+                    Repeater{
+                        model: 8/*mainClass.getCountTargets()*/
+
+                        WidgetShooting{
+                            id: widgetShooting
+                            width: parent.width
+                            heightCustom: 50
+                        }
+                    }
+                }           
+            }
+        }
     }
 }
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:0.66}
-}
-##^##*/
