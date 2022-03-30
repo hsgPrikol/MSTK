@@ -793,7 +793,7 @@ ApplicationWindow {
                         from: 30
                         to: 120
                         stepSize: 15
-//                        scale: 0.8
+                        scale: 0.8
 
                         handle: Rectangle {
                             x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
