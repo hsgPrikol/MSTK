@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include "mainclass.h"
 #include <QQmlContext>
+#include "classfortest.h"
 
 int main(int argc, char *argv[])
 {

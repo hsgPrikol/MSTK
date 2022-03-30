@@ -41,7 +41,6 @@ Window {
     //    }
 
     signal changedWidthSignal(var newWidth, var newXPosition)
-    property var sizeRectangleCurrent: 0
 
     //    Component.onCompleted: {
     //        changedWidthSignal.connect(window.log)

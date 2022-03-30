@@ -35,11 +35,8 @@ ApplicationWindow{
 
     function handlerNewHit(target, zone)
     {
-        console.log("~~~~1.1~~~")
         widgetShootingTargetAll.handlerNewHit(target, -1)
-        console.log("~~~~1.2~~~")
         widgetShooting.handlerNewHit(target, zone)
-        console.log("~~~~1.3~~~")
 
     }
 
@@ -294,7 +291,7 @@ ApplicationWindow{
 
                             widgetShooting.onChangeTarget(index)
 
-                            widgetShootingTargetAll.setNameWidget("Мишень " + (index + 1))
+                            widgetShooting.setNameWidget("Мишень " + (index + 1))
                         }
                     }
 
@@ -320,7 +317,7 @@ ApplicationWindow{
         x: 2
         y: 716
         anchors.horizontalCenter: parent.horizontalCenter
-        currentTargetActiv: 1
+        currentTargetActiv: 0
     }
 
     WidgetShooting {
@@ -331,11 +328,197 @@ ApplicationWindow{
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
+    Slider {
+        id: slider
+        x: 50
+        y: 132
+        width: 40
+        height: 558
+        orientation: Qt.Vertical
+        value: 30
+        from: 30
+        to: 120
+        stepSize: 15
+
+        Keys.onPressed: {
+            if (event.key === Qt.Key_Q)
+            {
+                console.log("Q")
+
+                //for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(0, 0)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_A)
+            {
+                console.log("A")
+
+                //for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(1, 0)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_Z)
+            {
+                console.log("Z")
+
+                //for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(2, 0)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_W)
+            {
+                console.log("W")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(3, 1)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_S)
+            {
+                console.log("S")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(4, 1)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_X)
+            {
+                console.log("X")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(5, 1)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_E)
+            {
+                console.log("E")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(6, 2)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_D)
+            {
+                console.log("D")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(7, 2)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_C)
+            {
+                console.log("C")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(8, 2)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_R)
+            {
+                console.log("R")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(9, 0)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_F)
+            {
+                console.log("F")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(10, 1)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_V)
+            {
+                console.log("V")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(11, 2)
+                }
+
+                event.accepted = true;
+            }
+
+            if (event.key === Qt.Key_T)
+            {
+                console.log("T")
+
+    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                {
+                    mainClass.newHit(12, 0)
+                }
+
+                event.accepted = true;
+            }
+        }
+
+        onValueChanged: {
+
+            widgetShootingTargetAll.currentScaleTime = value
+            widgetShooting.currentScaleTime = value
+
+//            console.log(value)
+//            sizeRectangleCurrent = windowRect.width / slider.value
+
+//            window.changedWidthSignal(sizeRectangleCurrent, timerRect.xRow)
+
+            //scroll.contentWidth = timerRect.count * sizeRectangleCurrent
+        }
+    }
+
     Component.onCompleted: {
         mainClass.onGetDate.connect(getDateFromC)
         mainClass.onGetTime.connect(getTimeFromC)
         mainClass.onNewHitCopter.connect(handlerNewHit)
     }
+
+
 }
 
 /*##^##

@@ -21,11 +21,17 @@ private:
 
     QVector<QVector<QVector<QTime>>> tableHitsTime;
 
+    const int TIMER_INTERVAL = 30;
+
+    QTime durationTraining;
+
 public:
     explicit MainClass(QObject *parent = nullptr);
 
     int countTargets;
     QTimer *timer;
+
+
 
 signals:
     void onNewHitCopterUpdateColor(int zone, QColor newColor);
@@ -34,6 +40,11 @@ signals:
 
     void onGetTime();
     void onGetDate();
+
+    void on100ms();
+    void on500ms();
+    void on1000ms();
+    void on5000ms();
 
     void onCalcXRow();
 
@@ -61,6 +72,12 @@ public slots:
     QColor getNextColorForZone(int currentCountHit);
 
     void setIsCalcXRow(bool isCalc);
+
+    int getTIMER_INTERVAL();
+
+    int getDurationTrainingMSec();
+
+    int getDurationTrainingSec();
 };
 
 #endif // MAINCLASS_H

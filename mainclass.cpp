@@ -1,19 +1,68 @@
 #include "mainclass.h"
 
+int MainClass::getTIMER_INTERVAL()
+{
+    return TIMER_INTERVAL;
+}
+
+int MainClass::getDurationTrainingMSec()
+{
+    static QTime zeroTime = QTime(0, 0, 0, 0);
+
+    return zeroTime.msecsTo(durationTraining);
+}
+
+int MainClass::getDurationTrainingSec()
+{
+    static QTime zeroTime = QTime(0, 0, 0, 0);
+
+    return zeroTime.secsTo(durationTraining);
+}
+
 MainClass::MainClass(QObject *parent) : QObject(parent)
 {
     this->timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(emitSignalToQml()));
     goalColorCopter = QColor(255, 0, 0, 255);
+    durationTraining = QTime(0, 0, 0, 0);
 }
 
 void MainClass::emitSignalToQml()
 {
+    static int counter = 0;
+
+    durationTraining = durationTraining.addMSecs(TIMER_INTERVAL);
+
+    counter += TIMER_INTERVAL;
+
+    if(counter % 100 == 0)
+    {
+        emit on100ms();
+    }
+
+    if(counter % 500 == 0)
+    {
+        emit on500ms();
+    }
+
+    if(counter % 1000 == 0)
+    {
+        emit on1000ms();
+    }
+
+    if(counter % 5000 == 0)
+    {
+        emit on5000ms();
+
+        counter = 0;
+    }
+
     emit onGetDate();
     emit onGetTime();
 
     if (isCalcXRow)
     {
+
         emit onCalcXRow();
     }
 }
@@ -78,7 +127,8 @@ int MainClass::getRandom(int min, int max)
 
 void MainClass::startTimerGeneral()
 {
-    timer->start(500);
+//    durationTraining = QTime(0, 0, 0, 0);
+    timer->start(TIMER_INTERVAL);
 }
 
 void MainClass::stopTimerGeneral()
