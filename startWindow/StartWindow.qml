@@ -98,7 +98,7 @@ ApplicationWindow{
     //функция для поиска целей (мишеней) и обработка нажатия на кнопку поиска целей.
     function foundTargets()
     {
-        mainClass.setCountTargets(mainClass.getRandom(1,3))
+        mainClass.setCountTargets(/*mainClass.getRandom(1,3)*/3)
         countTargetsText.text = mainClass.getCountTargets()
         foundingTargetsText.text = "Найдено\nмишеней"
         beginingTrainingImg.source = "qrc:/pictures/Trenirovka_aktiv.tif"

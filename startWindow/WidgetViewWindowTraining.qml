@@ -22,7 +22,6 @@ Rectangle {
 
 
 
-
 //    MouseArea {
 //        anchors.fill: parent
 //        //acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -76,8 +75,6 @@ Rectangle {
     {
 
 //        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
-
-        console.log(newColor)
 
         switch (zone)
         {
@@ -1023,168 +1020,163 @@ Rectangle {
         running: false
     }
 
-    Keys.onPressed: {
-        if (event.key === Qt.Key_Q)
-        {
-            console.log("Q")
+//    Keys.onPressed: {
+//        if (event.key === Qt.Key_Q)
+//        {
+//            console.log("Q")
 
-            //for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(0, 0)
-            }
+//            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(0, 0)
+//            }
 
-            event.accepted = true;
-        }
+//            event.accepted = true;
+//        }
 
-        if (event.key === Qt.Key_A)
-        {
-            console.log("A")
+//        if (event.key === Qt.Key_A)
+//        {
+//            console.log("A")
 
-            //for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(1, 1)
-            }
+//            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(1, 0)
+//            }
 
-            event.accepted = true;
-        }
+//            event.accepted = true;
+//        }
 
-        if (event.key === Qt.Key_Z)
-        {
-            console.log("Z")
+//        if (event.key === Qt.Key_Z)
+//        {
+//            console.log("Z")
 
-            //for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(2, 2)
-            }
+//            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(2, 0)
+//            }
 
-            event.accepted = true;
-        }
+//            event.accepted = true;
+//        }
 
-        if (event.key === Qt.Key_W)
-        {
-            console.log("W")
+//        if (event.key === Qt.Key_W)
+//        {
+//            console.log("W")
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(3, i)
-            }
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(3, 1)
+//            }
 
-            event.accepted = true;
-        }
+//            event.accepted = true;
+//        }
 
-        if (event.key === Qt.Key_S)
-        {
-            console.log("S")
+//        if (event.key === Qt.Key_S)
+//        {
+//            console.log("S")
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(4, i)
-            }
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(4, 1)
+//            }
 
-            event.accepted = true;
-        }
+//            event.accepted = true;
+//        }
 
-        if (event.key === Qt.Key_X)
-        {
-            console.log("X")
+//        if (event.key === Qt.Key_X)
+//        {
+//            console.log("X")
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(5, i)
-            }
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(5, 1)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(5, i)
-            }
+//            event.accepted = true;
+//        }
 
-            event.accepted = true;
-        }
+//        if (event.key === Qt.Key_E)
+//        {
+//            console.log("E")
 
-        if (event.key === Qt.Key_E)
-        {
-            console.log("E")
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(6, 2)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(6, i)
-            }
+//            event.accepted = true;
+//        }
 
-            event.accepted = true;
-        }
+//        if (event.key === Qt.Key_D)
+//        {
+//            console.log("D")
 
-        if (event.key === Qt.Key_D)
-        {
-            console.log("D")
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(7, 2)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(7, i)
-            }
+//            event.accepted = true;
+//        }
 
-            event.accepted = true;
-        }
+//        if (event.key === Qt.Key_C)
+//        {
+//            console.log("C")
 
-        if (event.key === Qt.Key_C)
-        {
-            console.log("C")
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(8, 2)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(8, i)
-            }
+//            event.accepted = true;
+//        }
 
-            event.accepted = true;
-        }
+//        if (event.key === Qt.Key_R)
+//        {
+//            console.log("R")
 
-        if (event.key === Qt.Key_R)
-        {
-            console.log("R")
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(9, 0)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(9, i)
-            }
+//            event.accepted = true;
+//        }
 
-            event.accepted = true;
-        }
+//        if (event.key === Qt.Key_F)
+//        {
+//            console.log("F")
 
-        if (event.key === Qt.Key_F)
-        {
-            console.log("F")
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(10, 1)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(10, i)
-            }
+//            event.accepted = true;
+//        }
 
-            event.accepted = true;
-        }
+//        if (event.key === Qt.Key_V)
+//        {
+//            console.log("V")
 
-        if (event.key === Qt.Key_V)
-        {
-            console.log("V")
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(11, 2)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(11, i)
-            }
+//            event.accepted = true;
+//        }
 
-            event.accepted = true;
-        }
+//        if (event.key === Qt.Key_T)
+//        {
+//            console.log("T")
 
-        if (event.key === Qt.Key_T)
-        {
-            console.log("T")
+////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+//            {
+//                mainClass.newHit(12, 0)
+//            }
 
-            for (var i = 0; i < mainClass.getCountTargets(); i++)
-            {
-                mainClass.newHit(12, i)
-            }
-
-            event.accepted = true;
-        }
-    }
+//            event.accepted = true;
+//        }
+//    }
 
     MouseArea {
         id: mouseArea
