@@ -15,7 +15,6 @@ ApplicationWindow {
 
     //    flags: Qt.FramelessWindowHint
 
-
     signal signalExitResultWindow
 
     property int scaleTimeText: 30
@@ -950,6 +949,12 @@ ApplicationWindow {
             }
         }
 
+//        property type name: value
+        function nameTargets(index)
+        {
+
+        }
+
         //Список мишеней с общим timeLine
         GridRectangle{
             id: targetsAndGeneralTimeLine
@@ -971,16 +976,19 @@ ApplicationWindow {
                 clip: true
 
                 Column{
-                    anchors.verticalCenter: parent.verticalCenter
+//                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.fill: parent
                     anchors.left: parent.left
                     spacing: 10
                     Repeater{
-                        model: 8/*mainClass.getCountTargets()*/
+                        id: repWidgetShooting
+                        anchors.fill: parent
+                        model: /*mainClass.getCountTargets()*/
 
                         WidgetShooting{
                             id: widgetShooting
                             width: parent.width
-                            heightCustom: 50
+
                         }
                     }
                 }           
