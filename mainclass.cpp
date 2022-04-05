@@ -19,19 +19,51 @@ int MainClass::getDurationTrainingSec()
     return zeroTime.secsTo(durationTraining);
 }
 
+bool MainClass::getIsCalcXRow()
+{
+    return isCalcXRow;
+}
+
+void MainClass::setCffSpeedPlay(float value)
+{
+    cffSpeedPlay = value;
+}
+
+
+//void MainClass::AppendHitsFromSave(QQuickItem parent, QString path)
+//{
+//    //890 stranica
+//}
+
 MainClass::MainClass(QObject *parent) : QObject(parent)
 {
     this->timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(emitSignalToQml()));
     goalColorCopter = QColor(255, 0, 0, 255);
     durationTraining = QTime(0, 0, 0, 0);
+    cffSpeedPlay = 1.0;
+
+    serial = new SerialParser(this);
+    connect(serial, &SerialParser::onNewHit, this, &MainClass::newHit);
+
+    //сразу проинициализирую массив данных
+    tableHitsTime.resize(3);
+
+    for(int i = 0; i < tableHitsTime.size(); i++)
+    {
+        tableHitsTime[i].resize(13);
+    }
 }
 
 void MainClass::emitSignalToQml()
 {
-    static int counter = 0;
+    static int counter = 0;    
 
-    durationTraining = durationTraining.addMSecs(TIMER_INTERVAL);
+    if (isCalcXRow)
+    {
+        durationTraining = durationTraining.addMSecs(static_cast<int>(((float)(TIMER_INTERVAL) * cffSpeedPlay)));
+        emit onCalcXRow();
+    }
 
     counter += TIMER_INTERVAL;
 
@@ -60,15 +92,12 @@ void MainClass::emitSignalToQml()
     emit onGetDate();
     emit onGetTime();
 
-    if (isCalcXRow)
-    {
 
-        emit onCalcXRow();
-    }
 }
 
 QColor MainClass::getNextColorForZone(int currentCountHit)
 {
+    qDebug() << "getNextColorForZone  =" << currentCountHit;
     if(currentCountHit > MAX_COUNT_HIT)
     {
         currentCountHit = MAX_COUNT_HIT;
@@ -136,12 +165,18 @@ void MainClass::stopTimerGeneral()
     timer->stop();
 }
 
-void MainClass::newHit(int zone, int target)
-{    
-    ((tableHitsTime[target])[zone]).append(QTime::currentTime());
+void MainClass::newHit(int target, int zone)
+{
+//    if (target <= 2 && target != 0)
+//    {
+    qDebug() << "target" << target << "zone" << zone;
+    qDebug() << "zone" << zone << "target" << target;
+        ((tableHitsTime[target])[zone]).append(QTime::currentTime());
 
-    emit onNewHitCopterUpdateColor(zone, getNextColorForZone(((tableHitsTime[target])[zone]).size()));
-    emit onNewHitCopter(target, zone);
+
+        emit onNewHitCopterUpdateColor(zone, getNextColorForZone(((tableHitsTime[target])[zone]).size()));
+        emit onNewHitCopter(target, zone);
+//    }
 }
 
 void MainClass::setStartColor(QColor color)

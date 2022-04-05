@@ -13,6 +13,8 @@ import QtQuick.Controls.Styles 1.4
 
 import Qt3D.Extras 2.12
 
+import "../"
+
 Rectangle {
     color: "transparent"
     width: 500
@@ -170,10 +172,6 @@ Rectangle {
         aspects: ["input", "logic"]
         cameraAspectRatioMode: Scene3D.AutomaticAspectRatio
 
-
-
-
-
         //        ObjectPicker {
         //            id: objectPicker
         //            hoverEnabled: true
@@ -186,7 +184,6 @@ Rectangle {
 
 
         //        }
-
 
         Entity {
 
@@ -1008,18 +1005,18 @@ Rectangle {
     //        }
     //    }
 
-    ColorAnimation {
-        id: tetetet
-        from: Qt.rgba(0, 0, 0)
-        to: Qt.rgba(Math.random(0, 255), Math.random(0, 255), Math.random(0, 255))
-        duration: 200
-        property: "ambient"
-        target: phongMaterial
+//    ColorAnimation {
+//        id: tetetet
+//        from: Qt.rgba(0, 0, 0)
+//        to: Qt.rgba(Math.random(0, 255), Math.random(0, 255), Math.random(0, 255))
+//        duration: 200
+//        property: "ambient"
+//        target: phongMaterial
 
-        loops: Animation.Infinite
+//        loops: Animation.Infinite
 
-        running: false
-    }
+//        running: false
+//    }
 
 //    Keys.onPressed: {
 //        if (event.key === Qt.Key_Q)
@@ -1215,6 +1212,8 @@ Rectangle {
         Component.onCompleted: {
             mainClass.setStartColor(phongMaterial_F.ambient)
             mainClass.onNewHitCopterUpdateColor.connect(addHitEntityCopter)
+            console.log("Ты сюда зашел?")
+//            mainClass.onTestNewHit.connect(addHitEntityCopterTest)
 
 //            console.log("connect!!!!!!!!!!!!!!!!!")
         }

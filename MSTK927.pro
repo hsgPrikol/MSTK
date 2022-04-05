@@ -1,4 +1,4 @@
-QT += quick 3dcore 3drender 3dinput 3dextras 3dquick 3dquickextras quick3d
+QT += quick 3dcore 3drender 3dinput 3dextras 3dquick 3dquickextras quick3d serialport
 
 CONFIG += c++17
 
@@ -9,7 +9,8 @@ CONFIG += c++17
 SOURCES += \
         classfortest.cpp \
         main.cpp \
-        mainclass.cpp
+        mainclass.cpp \
+        serialparser.cpp
 
 RESOURCES += qml.qrc
 
@@ -77,4 +78,5 @@ DISTFILES += \
 
 HEADERS += \
     classfortest.h \
-    mainclass.h
+    mainclass.h \
+    serialparser.h

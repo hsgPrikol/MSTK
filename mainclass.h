@@ -7,6 +7,8 @@
 #include <QTimer>
 #include <QColor>
 #include <QArrayData>
+#include <QQuickItem>
+#include <serialparser.h>
 
 class MainClass : public QObject
 {
@@ -17,7 +19,7 @@ private:
 
     const int MAX_COUNT_HIT = 5;
 
-    bool isCalcXRow = false;
+    bool isCalcXRow = true;
 
     QVector<QVector<QVector<QTime>>> tableHitsTime;
 
@@ -25,18 +27,24 @@ private:
 
     QTime durationTraining;
 
+    float cffSpeedPlay;
+
+
+
 public:
     explicit MainClass(QObject *parent = nullptr);
 
     int countTargets;
     QTimer *timer;
+    SerialParser *serial;
 
 
 
 signals:
+
+    void onTestNewHit(int zone, QColor newColor);
     void onNewHitCopterUpdateColor(int zone, QColor newColor);
     void onNewHitCopter(int target, int zone);
-
 
     void onGetTime();
     void onGetDate();
@@ -47,7 +55,6 @@ signals:
     void on5000ms();
 
     void onCalcXRow();
-
 
 public slots:
     void emitSignalToQml();
@@ -72,12 +79,17 @@ public slots:
     QColor getNextColorForZone(int currentCountHit);
 
     void setIsCalcXRow(bool isCalc);
+    bool getIsCalcXRow();
 
     int getTIMER_INTERVAL();
 
     int getDurationTrainingMSec();
 
     int getDurationTrainingSec();
+
+    void setCffSpeedPlay(float value);
+
+//    void AppendHitsFromSave(QQuickItem parent, QString path);
 };
 
 #endif // MAINCLASS_H
