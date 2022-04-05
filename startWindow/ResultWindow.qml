@@ -95,10 +95,8 @@ ApplicationWindow {
 
             Rectangle {
                 id: startWindowHelp
-                x: 0
-                y: 0
                 width: 86
-                height: 70
+                height: parent.height
                 color: startWindowHelpMouse.containsMouse ? "#323232" : "transparent"
                 MouseArea {
                     id: startWindowHelpMouse
@@ -119,81 +117,80 @@ ApplicationWindow {
                 }
             }
 
-            Rectangle {
-                id: startWindowSettings
-                x: 110
-                y: 0
-                width: 86
-                height: 70
-                color: startWindowSettingsMouse.containsMouse ? "#323232" : "transparent"
-                Rectangle {
-                    id: startWindowSettingsRect
-                    width: startWindowSettingsMouse.containsMouse ? 55 : 50
-                    height: startWindowSettingsMouse.containsMouse ? 50 : 45
-                    color: "#00000000"
-                    anchors.verticalCenter: parent.verticalCenter
-                    Image {
-                        id: startWindowSettingsImg
-                        x: 0
-                        y: 0
-                        width: parent.width
-                        height: parent.width
-                        source: startWindowSettingsMouse.containsMouse ? "qrc:/pictures/Nastroiki.tif" : "qrc:/pictures/Big_Nastroiki.tif"
-                    }
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
+//            Rectangle {
+//                id: startWindowSettings
+//                x: 110
+//                y: 0
+//                width: 86
+//                height: 70
+//                color: startWindowSettingsMouse.containsMouse ? "#323232" : "transparent"
+//                Rectangle {
+//                    id: startWindowSettingsRect
+//                    width: startWindowSettingsMouse.containsMouse ? 55 : 50
+//                    height: startWindowSettingsMouse.containsMouse ? 50 : 45
+//                    color: "#00000000"
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    Image {
+//                        id: startWindowSettingsImg
+//                        x: 0
+//                        y: 0
+//                        width: parent.width
+//                        height: parent.width
+//                        source: startWindowSettingsMouse.containsMouse ? "qrc:/pictures/Nastroiki.tif" : "qrc:/pictures/Big_Nastroiki.tif"
+//                    }
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                }
 
-                MouseArea {
-                    id: startWindowSettingsMouse
-                    anchors.fill: parent
-                    hoverEnabled: true
-                }
-            }
+//                MouseArea {
+//                    id: startWindowSettingsMouse
+//                    anchors.fill: parent
+//                    hoverEnabled: true
+//                }
+//            }
 
-            Rectangle {
-                id: cyberMandarin
-                x: 413
-                y: 0
-                width: 70
-                height: 70
-                color: "#00000000"
-                Image {
-                    id: cyberMandarinImg
-                    width: 70
-                    height: 70
-                    source: "qrc:/pictures/Logo3.tif"
-                }
-            }
+            //            Rectangle {
+            //                id: cyberMandarin
+            //                x: 413
+            //                y: 0
+            //                width: 70
+            //                height: 70
+            //                color: "#00000000"
+            //                Image {
+            //                    id: cyberMandarinImg
+            //                    width: 70
+            //                    height: 70
+            //                    source: "qrc:/pictures/Logo3.tif"
+            //                }
+            //            }
 
-            Rectangle {
-                id: cyberMandarinName
-                x: 500
-                y: 0
-                width: 338
-                height: 70
-                color: "#00000000"
-                Image {
-                    id: image
-                    x: 0
-                    y: 15
-                    width: 257
-                    height: 40
-                    source: "qrc:/pictures/Cyber.tif"
-                }
-            }
+            //            Rectangle {
+            //                id: cyberMandarinName
+            //                x: 500
+            //                y: 0
+            //                width: 338
+            //                height: 70
+            //                color: "#00000000"
+            //                Image {
+            //                    id: image
+            //                    x: 0
+            //                    y: 15
+            //                    width: 257
+            //                    height: 40
+            //                    source: "qrc:/pictures/Cyber.tif"
+            //                }
+            //            }
 
             Rectangle {
                 id: startWindowStick
                 x: 85
                 y: 0
                 width: 25
-                height: 70
+                height: parent.height
                 color: "#00000000"
                 Rectangle {
-                    x: 12
-                    y: 12
+                    anchors.centerIn: parent
                     width: 1
-                    height: 50
+                    height: parent.height - 20
                     color: "#ffffff"
                 }
             }
@@ -983,11 +980,15 @@ ApplicationWindow {
                     Repeater{
                         id: repWidgetShooting
                         anchors.fill: parent
-                        model: /*mainClass.getCountTargets()*/
+                        model: 4/*mainClass.getCountTargets()*/
 
                         WidgetShooting{
                             id: widgetShooting
                             width: parent.width
+
+                            Component.onCompleted: {
+                                widgetShooting.setNameWidget("Мишень " + index)
+                            }
 
                         }
                     }
