@@ -35,6 +35,7 @@ Rectangle {
 
     onCurrentScaleTimeChanged: {
         onChangeScaleTime(currentScaleTime)
+        calcXRow()
     }
 
     function createNewRectGreen(target, textInRect)
@@ -138,6 +139,11 @@ Rectangle {
         window.xRow  = ((scroll.width / currentScaleTime) / (1000 / mainClass.getTIMER_INTERVAL())) * (mainClass.getDurationTrainingMSec() / mainClass.getTIMER_INTERVAL())
     }
 
+//    function calcXRow(durationEvent)
+//    {
+//        return ((scroll.width / currentScaleTime) / (1000 / mainClass.getTIMER_INTERVAL())) * (durationEvent / mainClass.getTIMER_INTERVAL())
+//    }
+
     property real xRow: 0.0
 
     Row {
@@ -165,12 +171,16 @@ Rectangle {
             id: windowRect
             x: 150
             height: heightCustom
-            width: 1030
+            width: 1027
             color: "transparent"
 
             ScrollView {
                 id: scroll
                 anchors.fill: parent
+                anchors.rightMargin: 0
+                anchors.bottomMargin: 0
+                anchors.leftMargin: 0
+                anchors.topMargin: 0
                 height: heightCustom
                 wheelEnabled: false
                 hoverEnabled: true
@@ -194,19 +204,25 @@ Rectangle {
                         width: 1
                         radius: 1
 
-                        onXChanged: {
-                            if (x >= scroll.width - 5)
-                            {
-                                visible = false
-                            }
-                            else
-                            {
-                                visible = true
-                            }
-                        }
+//                        onXChanged: {
+//                            if (x >= scroll.width - 5)
+//                            {
+//                                visible = false
+//                            }
+//                            else
+//                            {
+//                                visible = true
+//                            }
+//                        }
                     }
                 }
             }
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:1.75}
+}
+##^##*/

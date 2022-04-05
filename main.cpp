@@ -3,6 +3,7 @@
 #include "mainclass.h"
 #include <QQmlContext>
 #include "classfortest.h"
+//#include "serialparser.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,9 +16,12 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
-    MainClass mainClass;
+    MainClass *mainClass = new MainClass();
+//    SerialParser *serialParser = new SerialParser();
 
-    engine.rootContext()->setContextProperty("mainClass", &mainClass);
+
+    engine.rootContext()->setContextProperty("mainClass", mainClass);
+//    engine.rootContext()->setContextProperty("serialParser", serialParser);
 //    const QUrl url(QStringLiteral("qrc:/startWindow/StartWindow.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

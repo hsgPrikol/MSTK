@@ -16,13 +16,13 @@ ApplicationWindow{
     property int widthRectRepeater: 300
     property int heightRectRepeater: 50
 
-//    function getTimeAndDate()
-//    {
-//        startWindowDateText.text = Qt.formatDateTime(new Date(), "dd.MM.yyyy")
-//        startWindowHourAndMinutsText.text = Qt.formatTime(new Date(), "hh:mm")
-//        //        print(Qt.formatDateTime(new Date(), "dd.MM.yyyy"))
+    //    function getTimeAndDate()
+    //    {
+    //        startWindowDateText.text = Qt.formatDateTime(new Date(), "dd.MM.yyyy")
+    //        startWindowHourAndMinutsText.text = Qt.formatTime(new Date(), "hh:mm")
+    //        //        print(Qt.formatDateTime(new Date(), "dd.MM.yyyy"))
 
-//    }
+    //    }
     function getTimeFromC()
     {
         startWindowHourAndMinutsText.text = mainClass.getTime()
@@ -74,16 +74,16 @@ ApplicationWindow{
         border.color: "#404040"
         border.width: 0
         anchors.top: parent.top
-//        Timer {
-//            id: startWindowTimer
-//            interval: 1000
-//            repeat: true
-//            running: true
+        //        Timer {
+        //            id: startWindowTimer
+        //            interval: 1000
+        //            repeat: true
+        //            running: true
 
-//            onTriggered: {
-//                getTimeAndDate()
-//            }
-//        }
+        //            onTriggered: {
+        //                getTimeAndDate()
+        //            }
+        //        }
 
         Rectangle {
             id: startWindowTimeHourAndMinuts
@@ -345,10 +345,7 @@ ApplicationWindow{
             {
                 console.log("Q")
 
-                //for (var i = 0; i < mainClass.getCountTargets(); i++)
-                {
-                    mainClass.newHit(0, 0)
-                }
+                mainClass.newHit(0, 0)
 
                 event.accepted = true;
             }
@@ -381,7 +378,7 @@ ApplicationWindow{
             {
                 console.log("W")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(3, 1)
                 }
@@ -393,7 +390,7 @@ ApplicationWindow{
             {
                 console.log("S")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(4, 1)
                 }
@@ -405,7 +402,7 @@ ApplicationWindow{
             {
                 console.log("X")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(5, 1)
                 }
@@ -417,7 +414,7 @@ ApplicationWindow{
             {
                 console.log("E")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(6, 2)
                 }
@@ -429,7 +426,7 @@ ApplicationWindow{
             {
                 console.log("D")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(7, 2)
                 }
@@ -441,7 +438,7 @@ ApplicationWindow{
             {
                 console.log("C")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(8, 2)
                 }
@@ -453,7 +450,7 @@ ApplicationWindow{
             {
                 console.log("R")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(9, 0)
                 }
@@ -465,7 +462,7 @@ ApplicationWindow{
             {
                 console.log("F")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(10, 1)
                 }
@@ -477,7 +474,7 @@ ApplicationWindow{
             {
                 console.log("V")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(11, 2)
                 }
@@ -489,7 +486,7 @@ ApplicationWindow{
             {
                 console.log("T")
 
-    //            for (var i = 0; i < mainClass.getCountTargets(); i++)
+                //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
                     mainClass.newHit(12, 0)
                 }
@@ -503,12 +500,63 @@ ApplicationWindow{
             widgetShootingTargetAll.currentScaleTime = value
             widgetShooting.currentScaleTime = value
 
-//            console.log(value)
-//            sizeRectangleCurrent = windowRect.width / slider.value
+            //            console.log(value)
+            //            sizeRectangleCurrent = windowRect.width / slider.value
 
-//            window.changedWidthSignal(sizeRectangleCurrent, timerRect.xRow)
+            //            window.changedWidthSignal(sizeRectangleCurrent, timerRect.xRow)
 
             //scroll.contentWidth = timerRect.count * sizeRectangleCurrent
+        }
+    }
+
+    Slider {
+        id: slider1
+        x: 103
+        y: 132
+        width: 40
+        height: 558
+        value: 1
+        stepSize: 0.5
+        orientation: Qt.Vertical
+        to: 4
+        from: 0.5
+
+        Label {
+            id: label
+            x: 37
+            y: 8
+            width: 48
+            height: 28
+            text: qsTr("Label")
+            horizontalAlignment: Text.AlignHCenter
+            font.pointSize: 12
+
+            Component.onCompleted: {
+                label.text = slider1.value
+            }
+        }
+
+        onValueChanged: {
+            label.text = slider1.value
+            mainClass.setCffSpeedPlay(slider1.value)
+        }
+    }
+
+    Button {
+        id: button
+        x: 1130
+        y: 243
+        text: qsTr("Button")
+
+        onClicked: {
+            if(mainClass.getIsCalcXRow())
+            {
+                mainClass.setIsCalcXRow(false)
+            }
+            else
+            {
+                mainClass.setIsCalcXRow(true)
+            }
         }
     }
 
@@ -523,6 +571,6 @@ ApplicationWindow{
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}
+    D{i:0;formeditorZoom:1.75}D{i:29}
 }
 ##^##*/
