@@ -57,7 +57,7 @@ MainClass::MainClass(QObject *parent) : QObject(parent)
 
 void MainClass::emitSignalToQml()
 {
-    static int counter = 0;    
+    static int counter = 0;
 
     if (isCalcXRow)
     {
@@ -135,14 +135,14 @@ void MainClass::setCountTargets(int value)
 QString MainClass::getDate()
 {
     QDate date = QDate::currentDate();
-//    qDebug() << date.toString("dd.MM.yyyy");
+    //    qDebug() << date.toString("dd.MM.yyyy");
     return date.toString("dd.MM.yyyy");
 }
 
 QString MainClass::getTime()
 {
     QTime time = QTime::currentTime();
-//    qDebug() << time.toString("mm:ss");
+    //    qDebug() << time.toString("mm:ss");
 
     return time.toString("hh:mm");;
 }
@@ -156,7 +156,7 @@ int MainClass::getRandom(int min, int max)
 
 void MainClass::startTimerGeneral()
 {
-//    durationTraining = QTime(0, 0, 0, 0);
+    //    durationTraining = QTime(0, 0, 0, 0);
     timer->start(TIMER_INTERVAL);
 }
 
@@ -167,16 +167,23 @@ void MainClass::stopTimerGeneral()
 
 void MainClass::newHit(int target, int zone)
 {
-//    if (target <= 2 && target != 0)
-//    {
-    qDebug() << "target" << target << "zone" << zone;
-    qDebug() << "zone" << zone << "target" << target;
+    qDebug() << "onNewHit";
+
+    if((target < MAX_COUNT_TARGET) && (zone < MAX_COUNT_ZONE))
+    {
+        qDebug() << "target" << target << "zone" << zone;
+        qDebug() << "zone" << zone << "target" << target;
         ((tableHitsTime[target])[zone]).append(QTime::currentTime());
 
 
         emit onNewHitCopterUpdateColor(zone, getNextColorForZone(((tableHitsTime[target])[zone]).size()));
         emit onNewHitCopter(target, zone);
-//    }
+    }
+    else
+    {
+        qDebug() << "ERROR: Выход за переделы\ntarget_max = " << MAX_COUNT_TARGET << "current value target = " << target << "\nzone max = " << MAX_COUNT_ZONE << "current value zone = " << zone;
+    }
+
 }
 
 void MainClass::setStartColor(QColor color)

@@ -11,6 +11,7 @@ ApplicationWindow{
     height: 800
     color: "#626262"
     title: "Settings"
+
     //    visible: false
 
     property int widthRectRepeater: 300
@@ -356,7 +357,7 @@ ApplicationWindow{
 
                 //for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(1, 0)
+                    mainClass.newHit(0, 1)
                 }
 
                 event.accepted = true;
@@ -368,7 +369,7 @@ ApplicationWindow{
 
                 //for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(2, 0)
+                    mainClass.newHit(0, 2)
                 }
 
                 event.accepted = true;
@@ -380,7 +381,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(3, 1)
+                    mainClass.newHit(1, 3)
                 }
 
                 event.accepted = true;
@@ -392,7 +393,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(4, 1)
+                    mainClass.newHit(1, 4)
                 }
 
                 event.accepted = true;
@@ -404,7 +405,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(5, 1)
+                    mainClass.newHit(1, 5)
                 }
 
                 event.accepted = true;
@@ -416,7 +417,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(6, 2)
+                    mainClass.newHit(2, 6)
                 }
 
                 event.accepted = true;
@@ -428,7 +429,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(7, 2)
+                    mainClass.newHit(2, 7)
                 }
 
                 event.accepted = true;
@@ -440,7 +441,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(8, 2)
+                    mainClass.newHit(2, 8)
                 }
 
                 event.accepted = true;
@@ -452,7 +453,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(9, 0)
+                    mainClass.newHit(2, 9)
                 }
 
                 event.accepted = true;
@@ -464,7 +465,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(10, 1)
+                    mainClass.newHit(2, 10)
                 }
 
                 event.accepted = true;
@@ -476,7 +477,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(11, 2)
+                    mainClass.newHit(2, 11)
                 }
 
                 event.accepted = true;
@@ -488,7 +489,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(12, 0)
+                    mainClass.newHit(0, 12)
                 }
 
                 event.accepted = true;
@@ -565,8 +566,6 @@ ApplicationWindow{
         mainClass.onGetTime.connect(getTimeFromC)
         mainClass.onNewHitCopter.connect(handlerNewHit)
     }
-
-
 }
 
 /*##^##

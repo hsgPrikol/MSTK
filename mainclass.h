@@ -29,6 +29,8 @@ private:
 
     float cffSpeedPlay;
 
+    const int MAX_COUNT_ZONE = 13;
+    const int MAX_COUNT_TARGET = 3;
 
 
 public:
@@ -72,7 +74,7 @@ public slots:
     void startTimerGeneral();
     void stopTimerGeneral();
 
-    void newHit(int zone, int target);
+    void newHit(int, int);
 
     void setStartColor(QColor color);
 

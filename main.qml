@@ -6,6 +6,8 @@ import QtQuick.Layouts 1.15
 
 import "./startWindow"
 
+
+
 Window {
     id: window
     width: 1280
@@ -271,6 +273,119 @@ Window {
             width: 102
             height: 38
             text: qsTr("Label")
+        }
+    }
+
+    PathView {
+        id: pathView
+        x: 597
+        y: 371
+        width: 250
+        height: 130
+        delegate: Column {
+            spacing: 5
+            Rectangle {
+                width: 40
+                height: 40
+                color: colorCode
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Text {
+                x: 5
+                text: name
+                font.bold: true
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+        }
+        path: Path {
+            PathQuad {
+                x: 120
+                y: 25
+                controlX: 260
+                controlY: 75
+            }
+
+            PathQuad {
+                x: 120
+                y: 100
+                controlX: -20
+                controlY: 75
+            }
+            startX: 120
+            startY: 100
+        }
+        model: ListModel {
+            ListElement {
+                name: "Grey"
+                colorCode: "grey"
+            }
+
+            ListElement {
+                name: "Red"
+                colorCode: "red"
+            }
+
+            ListElement {
+                name: "Blue"
+                colorCode: "blue"
+            }
+
+            ListElement {
+                name: "Green"
+                colorCode: "green"
+            }
+        }
+    }
+
+    GridView {
+        id: gridView
+        x: 451
+        y: 299
+        width: 140
+        height: 140
+        cellWidth: 70
+        delegate: Item {
+            x: 5
+            height: 50
+            Column {
+                spacing: 5
+                Rectangle {
+                    width: 40
+                    height: 40
+                    color: colorCode
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                Text {
+                    x: 5
+                    text: name
+                    font.bold: true
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
+        }
+        cellHeight: 70
+        model: ListModel {
+            ListElement {
+                name: "Grey"
+                colorCode: "grey"
+            }
+
+            ListElement {
+                name: "Red"
+                colorCode: "red"
+            }
+
+            ListElement {
+                name: "Blue"
+                colorCode: "blue"
+            }
+
+            ListElement {
+                name: "Green"
+                colorCode: "green"
+            }
         }
     }
 

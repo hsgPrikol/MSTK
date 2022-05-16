@@ -90,7 +90,7 @@ void SerialParser::emitNewHit(int target, int zone)
 SerialParser::SerialParser(QObject *parent) : QObject(parent)
 {
     InitSerialParser(
-                "COM4",
+                "COM9",
                 9600,
                 QSerialPort::Data8,
                 QSerialPort::NoParity,
