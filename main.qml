@@ -15,15 +15,13 @@ Window {
     visible: true
     title: qsTr("MSTK929")
     //    flags: Qt.FramelessWindowHint
+
+    color: "#626262"
     property var textTime: ""
 
-    Component.onCompleted: {
-        mainClass.getDate()
-        mainClass.getTime()
+    property int fontSize: 32
+    property int fontSizeHover: 36
 
-
-
-    }
 
     //    Rectangle {
     //        Text {
@@ -75,84 +73,6 @@ Window {
     ////            print(timerRect.count)
     //        }
     //    }
-
-    Rectangle{
-        id: windowRect
-        //        y: 0
-        height: 40
-        width: window.width - 100
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: "red"
-
-        ScrollView {
-            id: scroll
-            height: 40
-            wheelEnabled: true
-            hoverEnabled: true
-            width: parent.width
-            contentWidth: timerRect.xRow
-            contentHeight: row.height
-            ScrollBar.horizontal.position: timerRect.count + 1
-            clip: true
-            //            ScrollBar.horizontal: ScrollBar{
-
-            //                parent: scroll.parent
-            //                anchors.top: scroll.top
-            //                anchors.left: scroll.right
-            //                anchors.bottom: scroll.bottom
-            //                anchors.right: scroll.right
-
-            ////                MouseArea{
-            ////                    anchors.fill: parent
-
-            ////                    onPressed: {
-            ////                        print("onPressd")
-            ////                    }
-            //                //}
-            //            }
-
-
-
-            //            MouseArea{
-            //                anchors.fill:
-
-            //                onPressed: {
-            //                    console.log("onPressed")
-            //                }
-            //            }
-
-
-
-
-
-
-            Flickable {
-                interactive: false
-            }
-
-            //Flickable.flickableDirection: Flickable.HorizontalFlick
-            //            Flickable.flickableDirection: Flickable.VerticalFlick
-
-
-
-
-
-            //            moving: false
-            //Flickable.moving: false
-            //ScrollBar.horizontal.interactive: false
-            //ScrollBar.horizontal.pressed: false
-            //        ScrollBar.interactive: false
-            //        enabled: false
-            Row{
-                id: row
-            }
-
-            //            Label {
-            //                     text: "ABC"
-            //                     font.pixelSize: 224
-            //                 }
-        }
-    }
     //    }
 
     StartWindow{
@@ -165,32 +85,127 @@ Window {
     }
 
 
-
-
-
     Rectangle{
-        y: 50
-        width: 100
-        height: 100
-        color: "red"
+        id: parametersTraining
+        y: 282
+        width: 480
+        height: 156
+        anchors.left: parent.left
+        anchors.leftMargin: 400
+        color: "transparent"
+
         MouseArea{
-            id: area
+            id: parametersTrainingMouse
             anchors.fill: parent
 
-            onClicked: {
-                //                timerRect.running = !timerRect.running
+            hoverEnabled: true
 
+            onClicked: {
                 startWindow.show()
                 window.hide()
                 mainClass.startTimerGeneral()
-
-                //                var placeMent
-
-                //                var rectCreator = Qt.createComponent("RectGreen.qml")
-                //                var Rect = rectCreator.createObject(parent, {x: mouseX, y: mouseY});
             }
         }
+
+        Image {
+
+            height: parent.height
+            width: parent.width
+            //          fillMode: Image.PreserveAspectCrop
+            source: "qrc:/pictures/Nastroiki_knopka_obzor.tif"
+        }
+
+        Text {
+            id: parameterstrainingText
+            x: 28
+            y: 8
+            width: 423
+            height: 140
+            text: qsTr("Старт")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            //                fontSize
+            font.pointSize: parametersTrainingMouse.containsMouse ? fontSizeHover : fontSize
+            font.family: "Calibri"
+            font.bold: parametersTrainingMouse.containsMouse ? true : false
+            color: "white"
+        }
     }
+
+
+
+    property var listArray: []
+
+    ComboBox{
+        id: comboBox
+        model: listArray
+//        model: listArray
+//        displayText: listArray[0]
+
+        Component.onCompleted:
+        {
+            print("ComboBox")
+
+            print(model)
+
+//            listArray = mainClass.getArrayPortName()
+            //displayText = listArray[0]
+        }
+    }
+
+
+    Component.onCompleted: {
+
+        print("Component.onCompleted")
+        mainClass.getDate()
+        mainClass.getTime()
+
+        //listArray = mainClass.getArrayPortName()
+        var list = mainClass.getArrayPortName()
+
+        listArray = []
+
+        for(var i = 0; i < list.length; i++)
+        {
+            comboBox.model.push(list[i].toString())
+        }
+////print(listArray.lenght)
+//        listArray = ["q","w","e"]
+//        print(list)
+//        print(listArray)
+//        var l = 1+1
+        print(comboBox.model)
+    }
+
+
+//    Rectangle{
+//        x: 552
+//        y: 310
+//        width: 100
+//        height: 100
+//        color: "red"
+//        anchors.verticalCenter: parent.verticalCenter
+//        anchors.verticalCenterOffset: -220
+//        anchors.horizontalCenterOffset: -386
+//        anchors.horizontalCenter: parent.horizontalCenter
+//        MouseArea{
+//            id: area
+//            anchors.fill: parent
+
+//            onClicked: {
+//                //                timerRect.running = !timerRect.running
+
+//                startWindow.show()
+//                window.hide()
+//                mainClass.startTimerGeneral()
+
+//                //                var placeMent
+
+//                //                var rectCreator = Qt.createComponent("RectGreen.qml")
+//                //                var Rect = rectCreator.createObject(parent, {x: mouseX, y: mouseY});
+//            }
+//        }
+//    }
 
     //    Grid {
     //        x: 171
@@ -209,185 +224,6 @@ Window {
     //        Rectangle { color: "magenta"; width: 10; height: 10 }
     //    }
 
-
-    Slider {
-        id: slider
-        x: 106
-        y: 50
-        width: 430
-        height: 40
-        value: 30
-        from: 30
-        to: 120
-
-        stepSize: 15
-
-        //        onMoved: {
-        //            //console.log("work")
-        //            window.changedWidthSignal(
-        //                                        1 * (window.width / slider.value),
-        //                                        timerRect.xRow
-        //                                      )
-
-        //            label.text = window.width / slider.value
-        ////            label1.text =
-        //        }
-
-        onValueChanged: {
-            sizeRectangleCurrent = windowRect.width / slider.value
-
-            window.changedWidthSignal(sizeRectangleCurrent, timerRect.xRow)
-
-            //scroll.contentWidth = timerRect.count * sizeRectangleCurrent
-        }
-
-        Component.onCompleted: {
-            sizeRectangleCurrent = windowRect.width / slider.value
-
-
-        }
-
-
-        //        Component.onCompleted: {
-        //            console.log("Component.onCompleted")
-        //            slider.moved.connect(window.changedWidthSignal)
-        //        }
-    }
-
-    Label {
-        id: label
-        x: 106
-        y: 96
-        width: 117
-        height: 35
-        text: qsTr("Label")
-
-        Component.onCompleted: {
-            label.text = window.width / slider.value
-        }
-
-        Label {
-            id: label1
-            x: 127
-            y: 0
-            width: 102
-            height: 38
-            text: qsTr("Label")
-        }
-    }
-
-    PathView {
-        id: pathView
-        x: 597
-        y: 371
-        width: 250
-        height: 130
-        delegate: Column {
-            spacing: 5
-            Rectangle {
-                width: 40
-                height: 40
-                color: colorCode
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Text {
-                x: 5
-                text: name
-                font.bold: true
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-        }
-        path: Path {
-            PathQuad {
-                x: 120
-                y: 25
-                controlX: 260
-                controlY: 75
-            }
-
-            PathQuad {
-                x: 120
-                y: 100
-                controlX: -20
-                controlY: 75
-            }
-            startX: 120
-            startY: 100
-        }
-        model: ListModel {
-            ListElement {
-                name: "Grey"
-                colorCode: "grey"
-            }
-
-            ListElement {
-                name: "Red"
-                colorCode: "red"
-            }
-
-            ListElement {
-                name: "Blue"
-                colorCode: "blue"
-            }
-
-            ListElement {
-                name: "Green"
-                colorCode: "green"
-            }
-        }
-    }
-
-    GridView {
-        id: gridView
-        x: 451
-        y: 299
-        width: 140
-        height: 140
-        cellWidth: 70
-        delegate: Item {
-            x: 5
-            height: 50
-            Column {
-                spacing: 5
-                Rectangle {
-                    width: 40
-                    height: 40
-                    color: colorCode
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-
-                Text {
-                    x: 5
-                    text: name
-                    font.bold: true
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-            }
-        }
-        cellHeight: 70
-        model: ListModel {
-            ListElement {
-                name: "Grey"
-                colorCode: "grey"
-            }
-
-            ListElement {
-                name: "Red"
-                colorCode: "red"
-            }
-
-            ListElement {
-                name: "Blue"
-                colorCode: "blue"
-            }
-
-            ListElement {
-                name: "Green"
-                colorCode: "green"
-            }
-        }
-    }
 
     //    Grid {
     //        id: grid

@@ -346,7 +346,7 @@ ApplicationWindow{
             {
                 console.log("Q")
 
-                mainClass.newHit(0, 0)
+                mainClass.newHit(0, 1)
 
                 event.accepted = true;
             }
@@ -357,7 +357,7 @@ ApplicationWindow{
 
                 //for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(0, 1)
+                    mainClass.newHit(0, 2)
                 }
 
                 event.accepted = true;
@@ -369,7 +369,7 @@ ApplicationWindow{
 
                 //for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(0, 2)
+                    mainClass.newHit(0, 3)
                 }
 
                 event.accepted = true;
@@ -381,7 +381,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(1, 3)
+                    mainClass.newHit(0, 4)
                 }
 
                 event.accepted = true;
@@ -393,7 +393,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(1, 4)
+                    mainClass.newHit(0, 5)
                 }
 
                 event.accepted = true;
@@ -405,7 +405,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(1, 5)
+                    mainClass.newHit(0, 6)
                 }
 
                 event.accepted = true;
@@ -417,7 +417,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(2, 6)
+                    mainClass.newHit(0, 7)
                 }
 
                 event.accepted = true;
@@ -429,7 +429,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(2, 7)
+                    mainClass.newHit(0, 8)
                 }
 
                 event.accepted = true;
@@ -441,7 +441,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(2, 8)
+                    mainClass.newHit(0, 9)
                 }
 
                 event.accepted = true;
@@ -453,7 +453,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(2, 9)
+                    mainClass.newHit(0, 10)
                 }
 
                 event.accepted = true;
@@ -465,7 +465,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(2, 10)
+                    mainClass.newHit(0, 11)
                 }
 
                 event.accepted = true;
@@ -477,7 +477,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(2, 11)
+                    mainClass.newHit(0, 12)
                 }
 
                 event.accepted = true;
@@ -489,7 +489,7 @@ ApplicationWindow{
 
                 //            for (var i = 0; i < mainClass.getCountTargets(); i++)
                 {
-                    mainClass.newHit(0, 12)
+                    mainClass.newHit(0, 13)
                 }
 
                 event.accepted = true;

@@ -24,11 +24,29 @@ bool MainClass::getIsCalcXRow()
     return isCalcXRow;
 }
 
+QVector<QString> MainClass::getArrayPortName()
+{
+//    return arrayPortName;
+
+    QVector<QString> tmp;
+    tmp.append("1");
+    tmp.append("3");
+    tmp.append("2");
+
+
+    return tmp;
+
+}
+
+int MainClass::getSizeArrayPortName()
+{
+    return arrayPortName.size();
+}
+
 void MainClass::setCffSpeedPlay(float value)
 {
     cffSpeedPlay = value;
 }
-
 
 //void MainClass::AppendHitsFromSave(QQuickItem parent, QString path)
 //{
@@ -48,6 +66,18 @@ MainClass::MainClass(QObject *parent) : QObject(parent)
 
     //сразу проинициализирую массив данных
     tableHitsTime.resize(3);
+
+    arrayComPort = QSerialPortInfo::availablePorts().toVector();
+
+    for (int i =0; i< arrayComPort.size(); i++)
+    {
+        arrayPortName.push_back(arrayComPort[i].portName());
+    }
+
+
+
+
+
 
     for(int i = 0; i < tableHitsTime.size(); i++)
     {
@@ -168,7 +198,7 @@ void MainClass::stopTimerGeneral()
 void MainClass::newHit(int target, int zone)
 {
     qDebug() << "onNewHit";
-
+    zone--;
     if((target < MAX_COUNT_TARGET) && (zone < MAX_COUNT_ZONE))
     {
         qDebug() << "target" << target << "zone" << zone;
@@ -176,8 +206,8 @@ void MainClass::newHit(int target, int zone)
         ((tableHitsTime[target])[zone]).append(QTime::currentTime());
 
 
-        emit onNewHitCopterUpdateColor(zone, getNextColorForZone(((tableHitsTime[target])[zone]).size()));
-        emit onNewHitCopter(target, zone);
+        emit onNewHitCopterUpdateColor(zone+1, getNextColorForZone(((tableHitsTime[target])[zone]).size()));
+        emit onNewHitCopter(target, zone+1);
     }
     else
     {

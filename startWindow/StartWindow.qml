@@ -5,8 +5,6 @@ import QtQuick.Layouts 1.12
 
 import "../"
 
-
-
 ApplicationWindow{
     id: startWindow
     width: 1280
@@ -161,7 +159,6 @@ ApplicationWindow{
             color: "white"
         }
     }
-
 
     //кнопка загрузки записи тренировки
     Rectangle {

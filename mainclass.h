@@ -9,6 +9,7 @@
 #include <QArrayData>
 #include <QQuickItem>
 #include <serialparser.h>
+#include <QtSerialPort/QSerialPortInfo>
 
 class MainClass : public QObject
 {
@@ -21,6 +22,12 @@ private:
 
     bool isCalcXRow = true;
 
+
+    QVector<QSerialPortInfo> arrayComPort;
+    QVector<QString> arrayPortName;
+    QString portName;
+
+
     QVector<QVector<QVector<QTime>>> tableHitsTime;
 
     const int TIMER_INTERVAL = 30;
@@ -30,7 +37,7 @@ private:
     float cffSpeedPlay;
 
     const int MAX_COUNT_ZONE = 13;
-    const int MAX_COUNT_TARGET = 3;
+    const int MAX_COUNT_TARGET = 2;
 
 
 public:
@@ -59,6 +66,9 @@ signals:
     void onCalcXRow();
 
 public slots:
+
+    QVector<QString> getArrayPortName();
+
     void emitSignalToQml();
 
     int getCountTargets();
@@ -74,7 +84,7 @@ public slots:
     void startTimerGeneral();
     void stopTimerGeneral();
 
-    void newHit(int, int);
+    void newHit(int zone, int target);
 
     void setStartColor(QColor color);
 
@@ -91,7 +101,8 @@ public slots:
 
     void setCffSpeedPlay(float value);
 
-//    void AppendHitsFromSave(QQuickItem parent, QString path);
+    //    void AppendHitsFromSave(QQuickItem parent, QString path);
+    int getSizeArrayPortName();
 };
 
 #endif // MAINCLASS_H

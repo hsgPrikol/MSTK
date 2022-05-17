@@ -82,79 +82,79 @@ Rectangle {
         switch (zone)
         {
 
-        case 0:
+        case 1:
         {
             phongMaterial_C.ambient = newColor
             break
         }
 
-        case 1:
+        case 2:
         {
             phongMaterial_F.ambient = newColor
             break
         }
 
-        case 2:
+        case 3:
         {
             phongMaterial_FL.ambient = newColor
             break
         }
 
-        case 3:
+        case 4:
         {
             phongMaterial_FP.ambient = newColor
             break
         }
 
-        case 4:
+        case 5:
         {
             phongMaterial_LB.ambient = newColor
             break
         }
 
-        case 5:
+        case 6:
         {
             phongMaterial_PB.ambient = newColor
             break
         }
 
-        case 6:
+        case 7:
         {
             phongMaterial_SLF.ambient = newColor
             break
         }
 
-        case 7:
+        case 8:
         {
             phongMaterial_SLT.ambient = newColor
             break
         }
 
-        case 8:
+        case 9:
         {
             phongMaterial_SPF.ambient = newColor
             break
         }
 
-        case 9:
+        case 10:
         {
             phongMaterial_SPT.ambient = newColor
             break
         }
 
-        case 10:
+        case 11:
         {
             phongMaterial_T.ambient = newColor
             break
         }
 
-        case 11:
+        case 12:
         {
             phongMaterial_TL.ambient = newColor
             break
         }
 
-        case 12:
+        case 13:
         {
             phongMaterial_TP.ambient = newColor
             break

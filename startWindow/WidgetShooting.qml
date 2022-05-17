@@ -61,43 +61,43 @@ Rectangle {
         switch (zone)
         {
 
-        case 0:
+        case 1:
             return "Ц"
 
-        case 1:
+        case 2:
             return "Ф"
 
-        case 2:
+        case 3:
             return "ФЛ"
 
-        case 3:
+        case 4:
             return "ФП"
 
-        case 4:
+        case 5:
             return "ЛБ"
 
-        case 5:
+        case 6:
             return "ПБ"
 
-        case 6:
+        case 7:
             return "СЛФ"
 
-        case 7:
+        case 8:
             return "СЛТ"
 
-        case 8:
+        case 9:
             return "СПФ"
 
-        case 9:
+        case 10:
             return "СПТ"
 
-        case 10:
+        case 11:
             return "Т"
 
-        case 11:
+        case 12:
             return "ТЛ"
 
-        case 12:
+        case 13:
             return "ТП"
 
         }
