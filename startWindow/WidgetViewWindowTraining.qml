@@ -23,7 +23,24 @@ Rectangle {
     signal signalView3dExit
 
 
+    property string modelColor: Qt.rgba(0.4, 0.4, 0.4, 1)
 
+    function clearColorModel()
+    {
+        phongMaterial_C.ambient = modelColor
+        phongMaterial_F.ambient = modelColor
+        phongMaterial_FL.ambient = modelColor
+        phongMaterial_FP.ambient = modelColor
+        phongMaterial_LB.ambient = modelColor
+        phongMaterial_PB.ambient = modelColor
+        phongMaterial_SLF.ambient = modelColor
+        phongMaterial_SLT.ambient = modelColor
+        phongMaterial_SPF.ambient = modelColor
+        phongMaterial_SPT.ambient = modelColor
+        phongMaterial_T.ambient = modelColor
+        phongMaterial_TL.ambient = modelColor
+        phongMaterial_TP.ambient = modelColor
+    }
 
     //    MouseArea {
     //        anchors.fill: parent
@@ -77,7 +94,7 @@ Rectangle {
     function addHitEntityCopter(zone, newColor)
     {
 
-//        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
+        //        console.log("ЭТО БЛЯТЬ РАБОТАЕТ")
 
         switch (zone)
         {
@@ -345,7 +362,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_C
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -377,7 +394,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_F
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -402,7 +419,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_FL
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -427,7 +444,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_FP
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -452,7 +469,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_LB
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -477,7 +494,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_NOJKI
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -502,7 +519,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_PB
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -527,7 +544,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_SLF
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -552,7 +569,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_SLT
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -577,7 +594,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_SPF
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -602,7 +619,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_SPT
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -627,7 +644,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_T
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -652,7 +669,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_TL
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -678,7 +695,7 @@ Rectangle {
 
                 PhongMaterial {
                     id: phongMaterial_TP
-                    ambient: Qt.rgba(0.4, 0.4, 0.4, 1)
+                    ambient: modelColor
                 }
 
                 Mesh {
@@ -1005,176 +1022,176 @@ Rectangle {
     //        }
     //    }
 
-//    ColorAnimation {
-//        id: tetetet
-//        from: Qt.rgba(0, 0, 0)
-//        to: Qt.rgba(Math.random(0, 255), Math.random(0, 255), Math.random(0, 255))
-//        duration: 200
-//        property: "ambient"
-//        target: phongMaterial
+    //    ColorAnimation {
+    //        id: tetetet
+    //        from: Qt.rgba(0, 0, 0)
+    //        to: Qt.rgba(Math.random(0, 255), Math.random(0, 255), Math.random(0, 255))
+    //        duration: 200
+    //        property: "ambient"
+    //        target: phongMaterial
 
-//        loops: Animation.Infinite
+    //        loops: Animation.Infinite
 
-//        running: false
-//    }
+    //        running: false
+    //    }
 
-//    Keys.onPressed: {
-//        if (event.key === Qt.Key_Q)
-//        {
-//            console.log("Q")
+    //    Keys.onPressed: {
+    //        if (event.key === Qt.Key_Q)
+    //        {
+    //            console.log("Q")
 
-//            //for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(0, 0)
-//            }
+    //            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(0, 0)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_A)
-//        {
-//            console.log("A")
+    //        if (event.key === Qt.Key_A)
+    //        {
+    //            console.log("A")
 
-//            //for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(1, 0)
-//            }
+    //            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(1, 0)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_Z)
-//        {
-//            console.log("Z")
+    //        if (event.key === Qt.Key_Z)
+    //        {
+    //            console.log("Z")
 
-//            //for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(2, 0)
-//            }
+    //            //for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(2, 0)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_W)
-//        {
-//            console.log("W")
+    //        if (event.key === Qt.Key_W)
+    //        {
+    //            console.log("W")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(3, 1)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(3, 1)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_S)
-//        {
-//            console.log("S")
+    //        if (event.key === Qt.Key_S)
+    //        {
+    //            console.log("S")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(4, 1)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(4, 1)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_X)
-//        {
-//            console.log("X")
+    //        if (event.key === Qt.Key_X)
+    //        {
+    //            console.log("X")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(5, 1)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(5, 1)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_E)
-//        {
-//            console.log("E")
+    //        if (event.key === Qt.Key_E)
+    //        {
+    //            console.log("E")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(6, 2)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(6, 2)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_D)
-//        {
-//            console.log("D")
+    //        if (event.key === Qt.Key_D)
+    //        {
+    //            console.log("D")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(7, 2)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(7, 2)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_C)
-//        {
-//            console.log("C")
+    //        if (event.key === Qt.Key_C)
+    //        {
+    //            console.log("C")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(8, 2)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(8, 2)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_R)
-//        {
-//            console.log("R")
+    //        if (event.key === Qt.Key_R)
+    //        {
+    //            console.log("R")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(9, 0)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(9, 0)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_F)
-//        {
-//            console.log("F")
+    //        if (event.key === Qt.Key_F)
+    //        {
+    //            console.log("F")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(10, 1)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(10, 1)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_V)
-//        {
-//            console.log("V")
+    //        if (event.key === Qt.Key_V)
+    //        {
+    //            console.log("V")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(11, 2)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(11, 2)
+    //            }
 
-//            event.accepted = true;
-//        }
+    //            event.accepted = true;
+    //        }
 
-//        if (event.key === Qt.Key_T)
-//        {
-//            console.log("T")
+    //        if (event.key === Qt.Key_T)
+    //        {
+    //            console.log("T")
 
-////            for (var i = 0; i < mainClass.getCountTargets(); i++)
-//            {
-//                mainClass.newHit(12, 0)
-//            }
+    ////            for (var i = 0; i < mainClass.getCountTargets(); i++)
+    //            {
+    //                mainClass.newHit(12, 0)
+    //            }
 
-//            event.accepted = true;
-//        }
-//    }
+    //            event.accepted = true;
+    //        }
+    //    }
 
     MouseArea {
         id: mouseArea
@@ -1213,9 +1230,9 @@ Rectangle {
             mainClass.setStartColor(phongMaterial_F.ambient)
             mainClass.onNewHitCopterUpdateColor.connect(addHitEntityCopter)
             console.log("Ты сюда зашел?")
-//            mainClass.onTestNewHit.connect(addHitEntityCopterTest)
+            //            mainClass.onTestNewHit.connect(addHitEntityCopterTest)
 
-//            console.log("connect!!!!!!!!!!!!!!!!!")
+            //            console.log("connect!!!!!!!!!!!!!!!!!")
         }
     }
 

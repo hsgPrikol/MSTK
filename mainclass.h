@@ -65,7 +65,15 @@ signals:
 
     void onCalcXRow();
 
+    void onConnectSerial(QString portName);
+    void onDisconnectSerial();
+
 public slots:
+
+    void connectSerialPort(QString portName);
+    void disconnectSerialPort();
+
+
 
     QVector<QString> getArrayPortName();
 
@@ -103,6 +111,11 @@ public slots:
 
     //    void AppendHitsFromSave(QQuickItem parent, QString path);
     int getSizeArrayPortName();
+
+    QString getValueFromArrayPotname(int index);
+
+    ///обнуление закрашенных зон
+    void clearSizeZone();
 };
 
 #endif // MAINCLASS_H

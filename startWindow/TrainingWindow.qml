@@ -53,6 +53,8 @@ ApplicationWindow{
         currentTargetActiv.setImageActiv()
     }
 
+
+
     signal signalViewwewExit
 
     WidgetViewWindowTraining {
@@ -198,7 +200,7 @@ ApplicationWindow{
                 id: cyberMandarinImg
                 width: 70
                 height: 70
-                source: "qrc:/pictures/Logo3.tif"
+                source: "qrc:/pictures/Эра_лого — копия.png"
             }
         }
 
@@ -550,6 +552,11 @@ ApplicationWindow{
         text: qsTr("Button")
 
         onClicked: {
+
+//            mainClass.setStartColor(Qt.rgba(0.4,0.4,0.4,1));
+            mainClass.clearSizeZone();
+            viewWindowTraining.clearColorModel();
+
             if(mainClass.getIsCalcXRow())
             {
                 mainClass.setIsCalcXRow(false)

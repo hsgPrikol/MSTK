@@ -989,10 +989,10 @@ ApplicationWindow {
                             width: parent.width
 
                             Component.onCompleted: {
-                                widgetShooting.setNameWidget("Мишень " + index)
+                                widgetShooting.setNameWidget("Мишень " + index);
+
+                                console.log("widgetShooting.setNameWidget(Мишень " + "index);");
                             }
-
-
                         }
                     }
                 }           

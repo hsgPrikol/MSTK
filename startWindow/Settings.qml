@@ -15,6 +15,53 @@ ApplicationWindow{
 
     signal signalSettingsExit
 
+    function connectButton()
+    {
+        if (comboBoxComPort.displayText != "")
+        {
+            mainClass.connectSerialPort(comboBoxComPort.displayText);
+            buttonConnectSettings.enabled = false;
+            buttonConnectSettings.opacity = 0.5;
+            buttonDisconnectSettings.enabled = true;
+            buttonDisconnectSettings.opacity = 1;
+        }
+        else
+        {
+            buttonConnectSettings.opacity = 0.5;
+            buttonDisconnectSettings.opacity = 0.5;
+        }
+    }
+
+    function disconnectButton()
+    {
+        if (comboBoxComPort.displayText != "")
+        {
+            mainClass.disconnectSerialPort();
+            buttonConnectSettings.enabled = true;
+            buttonConnectSettings.opacity = 1;
+            buttonDisconnectSettings.enabled = false;
+            buttonDisconnectSettings.opacity = 0.5;
+        }
+        else
+        {
+            buttonConnectSettings.opacity = 0.5;
+            buttonDisconnectSettings.opacity = 0.5;
+        }
+    }
+
+    function updateButton()
+    {
+        listComPort = []
+        for (var i = 0; i < mainClass.getSizeArrayPortName(); i++)
+        {
+            listComPort.push(mainClass.getValueFromArrayPotname(i));
+            //                    console.log(listComPort[i])
+        }
+        buttonConnectSettings.opacity = 1;
+        buttonDisconnectSettings.opacity = 1;
+        comboBoxComPort.model = listComPort
+    }
+
     TextField {
         id: settingsWindowTextField
         x: 39
@@ -90,8 +137,8 @@ ApplicationWindow{
             hoverEnabled: true
 
             onClicked: {
-//                settingsWindow.close()
-//                startWindow.show()
+                //                settingsWindow.close()
+                //                startWindow.show()
                 fileDialog.open()
             }
         }
@@ -179,7 +226,7 @@ ApplicationWindow{
     Rectangle {
         id: settingsWindowTextLabel
         x: 39
-        y: 219
+        y: 237
         width: 513
         height: 64
         color: "#00000000"
@@ -529,7 +576,7 @@ ApplicationWindow{
             width: 56
             height: 30
             color: "#ffffff"
-            text: qsTr("v0.01")
+            text: qsTr("v0.02")
             font.pixelSize: 12
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
@@ -584,7 +631,7 @@ ApplicationWindow{
                 hoverEnabled: true
 
                 onClicked: {
-                    settingsWindow.close()
+                    settingsWindow.hide()
                     startWindow.show()
                 }
             }
@@ -598,19 +645,197 @@ ApplicationWindow{
         visible: false
         onAccepted: {
             console.log("You chose: " + fileDialog.fileUrls)
-//            Qt.quit()
+            //            Qt.quit()
         }
         onRejected: {
             console.log("Canceled")
-//            Qt.quit()
+            //            Qt.quit()
+        }   //        Component.onCompleted: visible = true
+    }
+
+    property var listComPort: []
+
+    ComboBox {
+        id: comboBoxComPort
+        x: 39
+        y: 204
+        width: 140
+        height: 33
+    }
+
+    Rectangle {
+        id: buttonConnectSettings
+        x: 354
+        y: 204
+        width: 132
+        height: 33
+        color: "#00000000"
+        opacity: 0.5
+        Image {
+            id: buttonConnectSettingsImg1
+            x: 0
+            y: 0
+            width: 123
+            height: 40
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            source: "qrc:/pictures/Nastoriki_knopka_primenit.tif"
+            anchors.horizontalCenter: parent.horizontalCenter
         }
-//        Component.onCompleted: visible = true
+
+        Text {
+            id: buttonConnectSettingsText1
+            x: 0
+            y: 0
+            width: 123
+            height: 40
+            color: "#ffffff"
+            text: "Connect"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.pointSize: 16
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea {
+            id: buttonConnectSettingsMouse1
+            anchors.fill: parent
+            hoverEnabled: true
+
+            onClicked: {
+                settingsWindow.connectButton();
+            }
+        }
+    }
+
+    Rectangle {
+        id: buttonDisconnectSettings
+        x: 509
+        y: 204
+        width: 117
+        height: 33
+        color: "#00000000"
+
+        opacity: 0.5
+        Image {
+            id: buttonDisconnectSettingsImg2
+            x: 0
+            y: 0
+            width: 123
+            height: 40
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            source: "qrc:/pictures/Nastoriki_knopka_primenit.tif"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Text {
+            id: buttonDisconnectSettingsText2
+            x: 0
+            y: 0
+            width: 123
+            height: 40
+            color: "#ffffff"
+            text: "Disconnect"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.pointSize: 16
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea {
+            id: buttonDisconnectSettingsMouse2
+            anchors.fill: parent
+            hoverEnabled: true
+
+            onClicked: {
+                settingsWindow.disconnectButton();
+
+            }
+        }
+    }
+
+    Rectangle {
+        id: buttonUpdateSettings
+        x: 205
+        y: 204
+        width: 123
+        height: 33
+        color: "#00000000"
+        Image {
+            id: buttonUpdateSettingsImg2
+            x: 0
+            y: 0
+            width: 123
+            height: 40
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            source: "qrc:/pictures/Nastoriki_knopka_primenit.tif"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Text {
+            id: buttonUpdateSettingsText2
+            x: 0
+            y: 0
+            width: 123
+            height: 40
+            color: "#ffffff"
+            text: "Update"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.pointSize: 16
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea {
+            id: buttonUpdateSettingsMouse2
+            anchors.fill: parent
+            hoverEnabled: true
+
+            onClicked: {
+                settingsWindow.updateButton();
+            }
+        }
+    }
+
+    Label {
+        id: label
+        x: 39
+        y: 176
+        width: 140
+        height: 22
+        color: "#ffffff"
+        text: qsTr("Настройкa COM-port")
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+        font.pointSize: 10
     }
 }
 
 
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:1.1}D{i:9}D{i:14}D{i:16}D{i:19}D{i:28}D{i:38}D{i:42}
-}
-##^##*/
+

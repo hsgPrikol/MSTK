@@ -134,49 +134,54 @@ Window {
 
 
 
-    property var listArray: []
+//    property var listArray: []
 
-    ComboBox{
-        id: comboBox
-        model: listArray
-//        model: listArray
-//        displayText: listArray[0]
+//    ComboBox{
+//        id: comboBox
+//        visible: false
+//    }
 
-        Component.onCompleted:
-        {
-            print("ComboBox")
+//    Button {
+//        id: buttonConnect
+//        x: 253
+//        y: 76
+//        text: qsTr("Connect")
+//        visible: false
+//        onClicked: {
+//            mainClass.connectSerialPort(comboBox.displayText);
+//        }
+//    }
 
-            print(model)
+//    Button {
+//        id: buttonDisconnect
+//        x: 459
+//        y: 76
+//        text: qsTr("Disconnect")
+//        visible: false
 
-//            listArray = mainClass.getArrayPortName()
-            //displayText = listArray[0]
-        }
-    }
+//        onClicked: {
+
+//            mainClass.disconnectSerialPort();
+
+//        }
+//    }
 
 
-    Component.onCompleted: {
+//    Component.onCompleted: {
+//        print("Component.onCompleted")
+//        mainClass.getDate()
+//        mainClass.getTime()
 
-        print("Component.onCompleted")
-        mainClass.getDate()
-        mainClass.getTime()
+////        listArray = mainClass.getArrayPortName()
 
-        //listArray = mainClass.getArrayPortName()
-        var list = mainClass.getArrayPortName()
+////        for (var i = 0; i < mainClass.getSizeArrayPortName(); i++)
+////        {
+////            listArray.push(mainClass.getValueFromArrayPotname(i));
+////            console.log(listArray[i])
+////        }
 
-        listArray = []
-
-        for(var i = 0; i < list.length; i++)
-        {
-            comboBox.model.push(list[i].toString())
-        }
-////print(listArray.lenght)
-//        listArray = ["q","w","e"]
-//        print(list)
-//        print(listArray)
-//        var l = 1+1
-        print(comboBox.model)
-    }
-
+////        comboBox.model = listArray
+//    }
 
 //    Rectangle{
 //        x: 552
@@ -287,6 +292,6 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}
+    D{i:0;formeditorZoom:0.66}
 }
 ##^##*/

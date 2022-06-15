@@ -43,6 +43,27 @@ void SerialParser::slotErrorOccurred(QSerialPort::SerialPortError error)
     }
 }
 
+void SerialParser::connectSerialPort(QString portName)
+{
+//    disconnect(serialPort, &QSerialPort::readyRead, this, &SerialParser::slotReadyRead);
+    serialPort->setPortName(portName);
+    if (!serialPort->open(QIODevice::ReadOnly))
+    {
+        qDebug() << "ERROR: Serial port error - " << serialPort->errorString();
+        status = false;
+    }
+//    connect(serialPort, &QSerialPort::readyRead, this, &SerialParser::slotReadyRead);
+    qDebug() << "void SerialParser::connectSerialPort(QString portName)";
+}
+
+void SerialParser::disconnectSerialPort()
+{
+    serialPort->close();
+
+//    disconnect(serialPort, &QSerialPort::readyRead, this, &SerialParser::slotReadyRead);
+    qDebug() << "void SerialParser::disconnectSerialPort()";
+}
+
 bool SerialParser::getStatus() const
 {
     return status;
@@ -56,8 +77,6 @@ void SerialParser::InitSerialParser(
                                     QSerialPort::StopBits stopBits,
                                     QSerialPort::FlowControl flowControl)
 {
-
-
     serialPort = new QSerialPort();
     serialPort->setPortName(portName);
     serialPort->setBaudRate(baudRate);
@@ -69,10 +88,10 @@ void SerialParser::InitSerialParser(
     connect(serialPort, &QSerialPort::errorOccurred, this, &SerialParser::slotErrorOccurred);
     connect(serialPort, &QSerialPort::readyRead, this, &SerialParser::slotReadyRead);
 
-    if (!serialPort->open(QIODevice::ReadOnly)) {
-        qDebug() << "ERROR: Serial port error - " << serialPort->errorString();
-        status = false;
-    }
+//    if (!serialPort->open(QIODevice::ReadOnly)) {
+//        qDebug() << "ERROR: Serial port error - " << serialPort->errorString();
+//        status = false;
+//    }
 
     serialPort->clear();
     buffer.clear();

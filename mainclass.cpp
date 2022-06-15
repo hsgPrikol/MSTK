@@ -24,6 +24,11 @@ bool MainClass::getIsCalcXRow()
     return isCalcXRow;
 }
 
+QString MainClass::getValueFromArrayPotname(int index)
+{
+    return arrayPortName[index];
+}
+
 QVector<QString> MainClass::getArrayPortName()
 {
 //    return arrayPortName;
@@ -33,13 +38,21 @@ QVector<QString> MainClass::getArrayPortName()
     tmp.append("3");
     tmp.append("2");
 
-
     return tmp;
-
 }
 
 int MainClass::getSizeArrayPortName()
 {
+    arrayPortName.clear();
+    arrayComPort.clear();
+
+    arrayComPort = QSerialPortInfo::availablePorts().toVector();
+
+    for (int i =0; i< arrayComPort.size(); i++)
+    {
+        arrayPortName.push_back(arrayComPort[i].portName());
+    }
+
     return arrayPortName.size();
 }
 
@@ -64,6 +77,9 @@ MainClass::MainClass(QObject *parent) : QObject(parent)
     serial = new SerialParser(this);
     connect(serial, &SerialParser::onNewHit, this, &MainClass::newHit);
 
+    connect(this, &MainClass::onConnectSerial, serial, &SerialParser::connectSerialPort);
+    connect(this, &MainClass::onDisconnectSerial, serial, &SerialParser::disconnectSerialPort);
+
     //сразу проинициализирую массив данных
     tableHitsTime.resize(3);
 
@@ -74,15 +90,22 @@ MainClass::MainClass(QObject *parent) : QObject(parent)
         arrayPortName.push_back(arrayComPort[i].portName());
     }
 
-
-
-
-
-
     for(int i = 0; i < tableHitsTime.size(); i++)
     {
         tableHitsTime[i].resize(13);
     }
+}
+
+void MainClass::connectSerialPort(QString portName)
+{
+    qDebug() << "void MainClass::connectSerialPort(QString portName)";
+    emit onConnectSerial(portName);
+}
+
+void MainClass::disconnectSerialPort()
+{
+    qDebug() << "void MainClass::disconnectSerialPort()";
+    emit onDisconnectSerial();
 }
 
 void MainClass::emitSignalToQml()
@@ -121,8 +144,6 @@ void MainClass::emitSignalToQml()
 
     emit onGetDate();
     emit onGetTime();
-
-
 }
 
 QColor MainClass::getNextColorForZone(int currentCountHit)
@@ -193,6 +214,12 @@ void MainClass::startTimerGeneral()
 void MainClass::stopTimerGeneral()
 {
     timer->stop();
+}
+
+void MainClass::clearSizeZone()
+{
+    tableHitsTime.clear();
+    this->setCountTargets(3);
 }
 
 void MainClass::newHit(int target, int zone)

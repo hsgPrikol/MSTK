@@ -64,8 +64,9 @@ ApplicationWindow {
                 hoverEnabled: true
 
                 onClicked: {
-                    trainingParameters.hide()
+                    trainingParameters.hide();
                     //                    startWindow.show()
+                    console.log("trainingParameters.hide()");
 
                 }
             }

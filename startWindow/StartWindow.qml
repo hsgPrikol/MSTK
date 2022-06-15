@@ -17,7 +17,7 @@ ApplicationWindow{
         id: settingsWindow
 
         onSignalSettingsExit: {
-            startWindow.hide()
+//            startWindow.hide()
             settingsWindow.show()
         }
     }
@@ -177,6 +177,7 @@ ApplicationWindow{
 
             onClicked: {
                 resultWindow.signalExitResultWindow()
+                console.log("resultWindow.signalExitResultWindow()")
             }
         }
 
@@ -253,7 +254,6 @@ ApplicationWindow{
         }
     }
 
-
     //кнопка поиска мишеней
     Rectangle  {
         id: foundingTargets
@@ -321,7 +321,6 @@ ApplicationWindow{
         }
     }
 
-
     //toolBar стартового окна
     Rectangle {
         id: startWindowTime
@@ -333,17 +332,6 @@ ApplicationWindow{
         color: "#404040"
         border.color: "#404040"
         border.width: 0
-
-//        Timer{
-//            id: startWindowTimer
-//            interval: 1000
-//            running: true
-//            repeat: true
-
-//            onTriggered: {
-//                getTimeAndDate()
-//            }
-//        }
 
         Rectangle
         {
